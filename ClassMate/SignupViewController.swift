@@ -13,6 +13,7 @@ class SignupViewController: UIViewController {
 
     @IBOutlet weak var EmailId: UITextField!
     @IBOutlet weak var Password: UITextField!
+    @IBOutlet weak var ConfirmPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,21 +31,32 @@ class SignupViewController: UIViewController {
             
             
         } else {
-            Auth.auth().createUser(withEmail: EmailId.text!, password: Password.text!) { (user, error) in
-                
-                if error == nil {
-                    print("You have successfully signed up")
-                
+            if(Password.text == ConfirmPassword.text){
+                Auth.auth().createUser(withEmail: EmailId.text!, password: Password.text!) { (user, error) in
                     
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
+                    if error == nil {
+                        print("You have successfully signed up")
+                        
+                        
+                    } else {
+                        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                        
+                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    }
                 }
             }
+            else{
+                let alertController = UIAlertController(title: "Error", message: "Your passwords do not match", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                present(alertController, animated: true, completion: nil)
+            }
+           
         }
     }
     
