@@ -1,0 +1,6 @@
+framework module Pods_ClassMate {
+  umbrella header "Pods-ClassMate-umbrella.h"
+
+  export *
+  module * { export * }
+}
