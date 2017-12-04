@@ -127,10 +127,10 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="18F-7t-zu5" userLabel="View - signup">
                                         <rect key="frame" x="330" y="0.0" width="45" height="667"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4r-ez-EqJ" userLabel="View - signup contents">
-                                                <rect key="frame" x="-123" y="14" width="290" height="489"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4r-ez-EqJ" userLabel="View - signup contents">
+                                                <rect key="frame" x="-123" y="50" width="290" height="333"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iqc-Ts-ab9" userLabel="Input View - email" customClass="AMInputView" customModule="AMLS" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iqc-Ts-ab9" userLabel="Input View - email" customClass="AMInputView" customModule="AMLS" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="8" width="210" height="52"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -144,16 +144,18 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3AU-Xv-JvU" userLabel="Input View - password" customClass="AMInputView" customModule="AMLS" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AU-Xv-JvU" userLabel="Input View - password" customClass="AMInputView" customModule="AMLS" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="84" width="210" height="52"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="52" id="MZx-8s-zps"/>
+                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="Title" value="Password"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijg-HE-dhd" userLabel="Input View - password" customClass="AMInputView" customModule="AMLS" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ijg-HE-dhd" userLabel="Input View - password" customClass="AMInputView" customModule="AMLS" customModuleProvider="target">
                                                         <rect key="frame" x="40" y="160" width="210" height="52"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -166,24 +168,21 @@
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGC-KU-9JM" userLabel="Input View - name" customClass="AMInputView" customModule="AMLS" customModuleProvider="target">
-                                                <rect key="frame" x="-83" y="245" width="210" height="52"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="52" id="nso-Fm-z5S"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3AU-Xv-JvU" secondAttribute="trailing" constant="40" id="3Aj-w9-wdp"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ijg-HE-dhd" secondAttribute="bottom" constant="8" id="3JU-Wf-CjO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Iqc-Ts-ab9" secondAttribute="trailing" constant="40" id="9Sp-ZW-liq"/>
+                                                    <constraint firstItem="3AU-Xv-JvU" firstAttribute="top" secondItem="Iqc-Ts-ab9" secondAttribute="bottom" constant="24" id="Abs-Zw-oaG"/>
+                                                    <constraint firstItem="3AU-Xv-JvU" firstAttribute="leading" secondItem="P4r-ez-EqJ" secondAttribute="leading" constant="40" id="CbQ-DA-WGn"/>
+                                                    <constraint firstItem="Ijg-HE-dhd" firstAttribute="top" secondItem="3AU-Xv-JvU" secondAttribute="bottom" constant="24" id="NuN-x1-TCT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ijg-HE-dhd" secondAttribute="trailing" constant="40" id="UoQ-HK-HrT"/>
+                                                    <constraint firstItem="Ijg-HE-dhd" firstAttribute="leading" secondItem="P4r-ez-EqJ" secondAttribute="leading" constant="40" id="cqv-5H-5po"/>
+                                                    <constraint firstItem="Iqc-Ts-ab9" firstAttribute="top" secondItem="P4r-ez-EqJ" secondAttribute="top" constant="8" id="h4r-1B-ljV"/>
+                                                    <constraint firstItem="Iqc-Ts-ab9" firstAttribute="leading" secondItem="P4r-ez-EqJ" secondAttribute="leading" constant="40" id="n9Z-cC-u58"/>
                                                 </constraints>
-                                                <viewLayoutGuide key="safeArea" id="rR8-C7-dJX"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="Title" value="Email"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="KeyboardType">
-                                                        <integer key="value" value="7"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
-                                                </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjb-pk-CA3">
-                                                <rect key="frame" x="-50" y="405" width="145" height="57"/>
+                                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjb-pk-CA3">
+                                                <rect key="frame" x="-50" y="305" width="145" height="57"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="57" id="aed-Rq-xga"/>
                                                     <constraint firstAttribute="width" constant="145" id="xYf-zM-OGo"/>
