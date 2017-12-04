@@ -138,7 +138,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="Title" value="Name"/>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="KeyboardType">
                                                                 <integer key="value" value="7"/>
                                                             </userDefinedRuntimeAttribute>
