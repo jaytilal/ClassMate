@@ -12,13 +12,14 @@
 		6059433B1FD492230093CB97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059433A1FD492230093CB97 /* AppDelegate.swift */; };
 		605943401FD492230093CB97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6059433E1FD492230093CB97 /* Main.storyboard */; };
 		605943431FD492230093CB97 /* ClassMate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 605943411FD492230093CB97 /* ClassMate.xcdatamodeld */; };
-		605943451FD492230093CB97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 605943441FD492230093CB97 /* Assets.xcassets */; };
 		605943531FD492230093CB97 /* ClassMateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605943521FD492230093CB97 /* ClassMateTests.swift */; };
 		6059435E1FD492230093CB97 /* ClassMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059435D1FD492230093CB97 /* ClassMateUITests.swift */; };
 		6059436C1FD496D30093CB97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6059436B1FD496D30093CB97 /* GoogleService-Info.plist */; };
 		605943771FD4D1720093CB97 /* AMInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605943751FD4D1720093CB97 /* AMInputView.swift */; };
 		605943781FD4D1720093CB97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605943761FD4D1720093CB97 /* ViewController.swift */; };
 		6059437A1FD4D3210093CB97 /* AMInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605943791FD4D3210093CB97 /* AMInputView.xib */; };
+		6059437D1FD4E4260093CB97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6059437B1FD4E4250093CB97 /* Assets.xcassets */; };
+		6059437E1FD4E4260093CB97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6059437C1FD4E4260093CB97 /* Images.xcassets */; };
 		83B5A556A97045E0576928C7 /* Pods_ClassMateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD46AFF1B481ECBEE24C7548 /* Pods_ClassMateTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +50,6 @@
 		6059433A1FD492230093CB97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6059433F1FD492230093CB97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		605943421FD492230093CB97 /* ClassMate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassMate.xcdatamodel; sourceTree = "<group>"; };
-		605943441FD492230093CB97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		605943491FD492230093CB97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6059434E1FD492230093CB97 /* ClassMateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		605943521FD492230093CB97 /* ClassMateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassMateTests.swift; sourceTree = "<group>"; };
@@ -61,6 +61,8 @@
 		605943751FD4D1720093CB97 /* AMInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AMInputView.swift; path = "../../../Downloads/AMLoginSignup-master/AMLoginSingup/AMLoginSingup/AMInputView/AMInputView.swift"; sourceTree = "<group>"; };
 		605943761FD4D1720093CB97 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../../Downloads/AMLoginSignup-master/AMLoginSingup/AMLoginSingup/ViewController.swift"; sourceTree = "<group>"; };
 		605943791FD4D3210093CB97 /* AMInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMInputView.xib; sourceTree = "<group>"; };
+		6059437B1FD4E4250093CB97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Downloads/AMLoginSignup-master/AMLoginSingup/AMLoginSingup/Assets.xcassets"; sourceTree = "<group>"; };
+		6059437C1FD4E4260093CB97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		90DA5C876EE75092A7802A25 /* Pods-ClassMateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassMateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassMateUITests/Pods-ClassMateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1FFDF5839765BA4AEC6CD4 /* Pods-ClassMateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassMateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassMateTests/Pods-ClassMateTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD46AFF1B481ECBEE24C7548 /* Pods_ClassMateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassMateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,10 +125,11 @@
 				605943751FD4D1720093CB97 /* AMInputView.swift */,
 				605943791FD4D3210093CB97 /* AMInputView.xib */,
 				605943761FD4D1720093CB97 /* ViewController.swift */,
+				6059437B1FD4E4250093CB97 /* Assets.xcassets */,
+				6059437C1FD4E4260093CB97 /* Images.xcassets */,
 				6059433A1FD492230093CB97 /* AppDelegate.swift */,
 				6059436B1FD496D30093CB97 /* GoogleService-Info.plist */,
 				6059433E1FD492230093CB97 /* Main.storyboard */,
-				605943441FD492230093CB97 /* Assets.xcassets */,
 				605943491FD492230093CB97 /* Info.plist */,
 				605943411FD492230093CB97 /* ClassMate.xcdatamodeld */,
 			);
@@ -292,8 +295,9 @@
 			files = (
 				6059436C1FD496D30093CB97 /* GoogleService-Info.plist in Resources */,
 				6059437A1FD4D3210093CB97 /* AMInputView.xib in Resources */,
-				605943451FD492230093CB97 /* Assets.xcassets in Resources */,
+				6059437E1FD4E4260093CB97 /* Images.xcassets in Resources */,
 				605943401FD492230093CB97 /* Main.storyboard in Resources */,
+				6059437D1FD4E4260093CB97 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,12 +378,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ClassMate/Pods-ClassMate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

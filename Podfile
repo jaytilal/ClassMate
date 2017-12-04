@@ -19,4 +19,5 @@ target 'ClassMate' do
  # Pods for FirebaseTutorial1
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end
