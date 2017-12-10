@@ -14,16 +14,27 @@ class AddGroupViewController: UIViewController {
     @IBOutlet weak var GroupName: UITextField!
     @IBOutlet weak var Hashtags: UITextField!
     @IBOutlet weak var Members: UITextField!
-    var ref:DatabaseReference!
+    let databaseRef = Database.database().reference()
     var MembersList = [String]()
+    
+    
     @IBAction func CreateGroup(_ sender: UIButton) {
+        let reference = databaseRef.child("groups")
+        let key = reference.childByAutoId().key;
+        let group = ["id":key,
+                    "name": GroupName.text!,
+                    "hashtags": Hashtags.text!,
+                    "members" : MembersList
+            ] as [String : Any]
+        print("Group added to Database")
+        reference.child(key).setValue(group)
+        showToast(message: "Group Created!")
     }
     
     
     @IBAction func SearchMembers(_ sender: UIButton) {
         if Members.text! != ""{
             let memberId = Members.text!
-            let databaseRef = Database.database().reference()
             databaseRef.child("users").queryOrdered(byChild: "emailId").queryEqual(toValue: memberId).observeSingleEvent(of: .value, with: { (snapShot) in
                 
                 if let snapDict = snapShot.value as? [String:AnyObject]{
@@ -40,7 +51,7 @@ class AddGroupViewController: UIViewController {
                     }
                 }
             }, withCancel: {(Err) in
-                
+                self.showToast(message: "User does not exist!")
                 print(Err.localizedDescription)
                 
             })
