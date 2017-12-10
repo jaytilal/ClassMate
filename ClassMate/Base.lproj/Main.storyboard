@@ -277,6 +277,7 @@
                         <outlet property="signupButtonVerticalCenterConstraint" destination="oWA-fP-BFZ" id="hrU-Cp-Flc"/>
                         <outlet property="signupContentView" destination="P4r-ez-EqJ" id="N0G-jb-Oi3"/>
                         <outlet property="signupEmailInputView" destination="Iqc-Ts-ab9" id="ZR3-fb-3Be"/>
+                        <outlet property="signupNameInputView" destination="zLa-Ha-Jjk" id="AFu-18-wdO"/>
                         <outlet property="signupPasswordConfirmInputView" destination="Ijg-HE-dhd" id="dau-e7-xHX"/>
                         <outlet property="signupPasswordInputView" destination="3AU-Xv-JvU" id="HnD-GB-ADg"/>
                         <outlet property="signupView" destination="18F-7t-zu5" id="DK3-8m-TSu"/>
@@ -342,7 +343,7 @@
     <resources>
         <image name="AddGroup" width="64" height="64"/>
         <image name="NavAdd" width="32" height="32"/>
-        <image name="backImage" width="1000" height="548"/>
+        <image name="backImage" width="650" height="462"/>
         <image name="logo" width="500" height="500"/>
     </resources>
 </document>

@@ -2,6 +2,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 enum AMLoginSignupViewMode {
     case login
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var signupButtonVerticalCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var signupButtonTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var signupNameInputView: AMInputView!
     
     //MARK: - logo and constrains
     @IBOutlet weak var logoView: UIView!
@@ -57,7 +59,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var signupPasswordInputView: AMInputView!
     @IBOutlet weak var signupPasswordConfirmInputView: AMInputView!
     
-    
+    var ref : DatabaseReference!
     
     //MARK: - controller
     override func viewDidLoad() {
@@ -106,6 +108,19 @@ class ViewController: UIViewController {
         }
     }
     
+    func addUser(){
+        ref = Database.database().reference()
+        let reference = ref.child("users")
+        let key = reference.childByAutoId().key;
+        let user = ["id":key,
+                    "name": signupNameInputView.textFieldView.text!,
+                    "emailId": signupEmailInputView.textFieldView.text!
+        ]
+        print("User added to Database")
+        reference.child(key).setValue(user)
+        
+    }
+    
     @IBAction func signupButtonTouchUpInside(_ sender: AnyObject) {
         
         if mode == .login {
@@ -118,6 +133,7 @@ class ViewController: UIViewController {
                 Auth.auth().createUser(withEmail: signupEmailInputView.textFieldView.text!, password: signupPasswordInputView.textFieldView.text!) { (user, error) in
                     
                     if error == nil {
+                        self.addUser()
                         print("You have successfully signed up")
                         
                         
@@ -170,7 +186,7 @@ class ViewController: UIViewController {
             
             // rotate and scale login button
             let scaleLogin:CGFloat = self.mode == .login ? 1:0.4
-            let rotateAngleLogin:CGFloat = self.mode == .login ? 0:CGFloat(-M_PI_2)
+            let rotateAngleLogin:CGFloat = self.mode == .login ? 0:CGFloat(-Double.pi/2)
             
             var transformLogin = CGAffineTransform(scaleX: scaleLogin, y: scaleLogin)
             transformLogin = transformLogin.rotated(by: rotateAngleLogin)
@@ -179,7 +195,7 @@ class ViewController: UIViewController {
             
             // rotate and scale signup button
             let scaleSignup:CGFloat = self.mode == .signup ? 1:0.4
-            let rotateAngleSignup:CGFloat = self.mode == .signup ? 0:CGFloat(-M_PI_2)
+            let rotateAngleSignup:CGFloat = self.mode == .signup ? 0:CGFloat(-Double.pi/2)
             
             var transformSignup = CGAffineTransform(scaleX: scaleSignup, y: scaleSignup)
             transformSignup = transformSignup.rotated(by: rotateAngleSignup)
