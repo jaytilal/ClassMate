@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-
+import FirebaseAuth
 class AddGroupViewController: UIViewController {
 
     @IBOutlet weak var GroupName: UITextField!
@@ -19,6 +19,7 @@ class AddGroupViewController: UIViewController {
     
     
     @IBAction func CreateGroup(_ sender: UIButton) {
+        MembersList.append((Auth.auth().currentUser?.email)!)
         let reference = databaseRef.child("groups")
         let key = reference.childByAutoId().key;
         let group = ["id":key,
@@ -27,7 +28,7 @@ class AddGroupViewController: UIViewController {
                     "members" : MembersList
             ] as [String : Any]
         print("Group added to Database")
-        reference.child(key).setValue(group)
+        reference.child(GroupName.text!).setValue(group)
         showToast(message: "Group Created!")
     }
     

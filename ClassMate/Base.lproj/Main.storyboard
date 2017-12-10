@@ -300,9 +300,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="AddGroup"/>
                                 <connections>
-                                    <segue destination="hBf-hy-LUl" kind="popoverPresentation" popoverAnchorView="DQu-Dr-5MR" id="ZQO-Zo-8Pi">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="hBf-hy-LUl" kind="presentation" id="ZQO-Zo-8Pi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -383,7 +381,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" id="FyI-k8-JYO">
                             <connections>
                                 <action selector="Back:" destination="vMl-lu-4Lj" id="etw-5A-Uxn"/>
-                                <segue destination="Dxh-7i-Qmm" kind="presentation" identifier="backToHome" id="IEY-qW-4op"/>
+                                <segue destination="aGc-r1-AcV" kind="presentation" id="pxN-Mq-Fqq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -442,6 +440,7 @@
         <image name="logo" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IEY-qW-4op"/>
+        <segue reference="ZQO-Zo-8Pi"/>
+        <segue reference="pxN-Mq-Fqq"/>
     </inferredMetricsTieBreakers>
 </document>
