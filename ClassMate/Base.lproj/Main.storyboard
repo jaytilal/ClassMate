@@ -300,7 +300,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="AddGroup"/>
                                 <connections>
-                                    <action selector="AddGroup:" destination="Dxh-7i-Qmm" eventType="touchUpInside" id="VR7-MR-anC"/>
+                                    <segue destination="hBf-hy-LUl" kind="popoverPresentation" popoverAnchorView="DQu-Dr-5MR" id="ZQO-Zo-8Pi">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -321,6 +323,81 @@
             </objects>
             <point key="canvasLocation" x="-1062" y="-331"/>
         </scene>
+        <!--Add Group View Controller-->
+        <scene sceneID="Zs8-cm-GVg">
+            <objects>
+                <viewController id="hoI-Wk-RyO" customClass="AddGroupViewController" customModule="ClassMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="veT-qp-cYg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1pC-FO-df7">
+                                <rect key="frame" x="39" y="184" width="302" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#Hashtags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qyC-fw-GDY">
+                                <rect key="frame" x="39" y="252" width="302" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New member's email id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ax-0N-0Ic">
+                                <rect key="frame" x="39" y="332" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fso-Cs-sjC">
+                                <rect key="frame" x="270" y="332" width="89" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Member"/>
+                                <connections>
+                                    <action selector="SearchMembers:" destination="hoI-Wk-RyO" eventType="touchUpInside" id="I6L-y1-Ypt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuO-jN-IuX">
+                                <rect key="frame" x="141" y="410" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Group"/>
+                                <connections>
+                                    <action selector="CreateGroup:" destination="hoI-Wk-RyO" eventType="touchUpInside" id="Ta2-1D-HKX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create New Study Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kz-a7-kC5">
+                                <rect key="frame" x="95" y="89" width="191" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="uc6-Zq-JZ0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uze-TD-r3a">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="FyI-k8-JYO">
+                            <connections>
+                                <action selector="Back:" destination="vMl-lu-4Lj" id="etw-5A-Uxn"/>
+                                <segue destination="Dxh-7i-Qmm" kind="presentation" identifier="backToHome" id="IEY-qW-4op"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="GroupName" destination="1pC-FO-df7" id="SVn-gY-8iT"/>
+                        <outlet property="Hashtags" destination="qyC-fw-GDY" id="vfc-3F-hxG"/>
+                        <outlet property="Members" destination="4ax-0N-0Ic" id="6KO-4T-kRk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aI7-E3-WCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vMl-lu-4Lj" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="597.60000000000002" y="-331.48425787106447"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="bL4-Jq-Rbi">
             <objects>
@@ -339,6 +416,24 @@
             </objects>
             <point key="canvasLocation" x="-1903" y="-331"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rv9-YF-iqL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hBf-hy-LUl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DTT-6e-ArR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hoI-Wk-RyO" kind="relationship" relationship="rootViewController" id="dC9-ve-gSD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVE-lr-fiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-265.60000000000002" y="-330.13493253373315"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AddGroup" width="64" height="64"/>
@@ -346,4 +441,7 @@
         <image name="backImage" width="650" height="462"/>
         <image name="logo" width="500" height="500"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IEY-qW-4op"/>
+    </inferredMetricsTieBreakers>
 </document>

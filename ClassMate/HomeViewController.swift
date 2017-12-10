@@ -9,10 +9,6 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    @IBAction func AddGroup(_ sender: UIButton) {
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
