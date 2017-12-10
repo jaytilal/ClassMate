@@ -1,6 +1,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 enum AMLoginSignupViewMode {
     case login
@@ -80,11 +81,28 @@ class ViewController: UIViewController {
         
         if mode == .signup {
             toggleViewMode(animated: true)
-            
         }else{
             
             //TODO: login by this data
-            NSLog("Email:\(loginEmailInputView.textFieldView.text) Password:\(loginPasswordInputView.textFieldView.text)")
+            NSLog("Email:\(loginEmailInputView.textFieldView.text!) Password:\(loginPasswordInputView.textFieldView.text!)")
+            Auth.auth().signIn(withEmail: loginEmailInputView.textFieldView.text!, password: loginPasswordInputView.textFieldView.text!) { (user, error) in
+                
+                if error == nil {
+                    
+                    //Print into the console if successfully logged in
+                    print("You have successfully logged in")
+                    
+                } else {
+                    
+                    //Tells the user that there is an error and then gets firebase to tell them the error
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
         }
     }
     
@@ -95,8 +113,27 @@ class ViewController: UIViewController {
         }else{
             
             //TODO: signup by this data
-            NSLog("Email:\(signupEmailInputView.textFieldView.text) Password:\(signupPasswordInputView.textFieldView.text), PasswordConfirm:\(signupPasswordConfirmInputView.textFieldView.text)")
-        }
+            NSLog("Email:\(signupEmailInputView.textFieldView.text!) Password:\(signupPasswordInputView.textFieldView.text!), PasswordConfirm:\(signupPasswordConfirmInputView.textFieldView.text!)")
+            if(signupPasswordInputView.textFieldView.text! == signupPasswordConfirmInputView.textFieldView.text!){
+                Auth.auth().createUser(withEmail: signupEmailInputView.textFieldView.text!, password: signupPasswordInputView.textFieldView.text!) { (user, error) in
+                    
+                    if error == nil {
+                        print("You have successfully signed up")
+                        
+                        
+                    } else {
+                        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                        
+                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                }
+            }
+            
+            }
+        
     }
     
     
