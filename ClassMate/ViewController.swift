@@ -1,12 +1,6 @@
-//
-//  ViewController.swift
-//  AMLoginSingup
-//
-//  Created by amir on 10/11/16.
-//  Copyright © 2016 amirs.eu. All rights reserved.
-//
 
 import UIKit
+import Firebase
 
 enum AMLoginSignupViewMode {
     case login
@@ -120,8 +114,8 @@ class ViewController: UIViewController {
         
         loginWidthConstraint.isActive = mode == .signup ? true:false
         //        logoCenterConstraint.constant = (mode == .login ? -1:1) * (loginWidthConstraint.multiplier * self.view.frame.size.width)/2
-        loginButtonVerticalCenterConstraint.priority = mode == .login ? 300:900
-        signupButtonVerticalCenterConstraint.priority = mode == .signup ? 300:900
+        loginButtonVerticalCenterConstraint.priority = UILayoutPriority(rawValue: UILayoutPriority.RawValue(mode == .login ? 300:900))
+        signupButtonVerticalCenterConstraint.priority = UILayoutPriority(rawValue: UILayoutPriority.RawValue(mode == .signup ? 300:900))
         
         
         //animate
@@ -159,7 +153,7 @@ class ViewController: UIViewController {
     
     
     //MARK: - keyboard
-    func keyboarFrameChange(notification:NSNotification){
+    @objc func keyboarFrameChange(notification:NSNotification){
         
         let userInfo = notification.userInfo as! [String:AnyObject]
         
@@ -221,5 +215,6 @@ class ViewController: UIViewController {
         return true
     }
 }
+
 
 
