@@ -388,7 +388,7 @@
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <state key="normal" image="plusbtn"/>
                                 <connections>
-                                    <segue destination="v3C-fE-top" kind="show" id="W8N-HZ-5UK"/>
+                                    <action selector="addNewNote:" destination="HsN-uT-r7g" eventType="touchUpInside" id="dHd-4S-pD0"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="txN-JP-wAx">
@@ -445,11 +445,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="txN-JP-wAx" id="LL2-Wi-UwZ"/>
+                        <segue destination="v3C-fE-top" kind="show" identifier="toAddNote" id="TaV-yN-pmI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYv-3h-tSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-724" y="500.59970014992507"/>
+            <point key="canvasLocation" x="-1164" y="475"/>
         </scene>
         <!--Add Note View Controller-->
         <scene sceneID="jWv-9a-tmV">
@@ -466,37 +467,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dAe-l0-PGb">
-                                <rect key="frame" x="53" y="123" width="268" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Topic" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJy-FE-hs1">
+                                <rect key="frame" x="35" y="142" width="304" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#Hastags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKM-jR-k49">
-                                <rect key="frame" x="53" y="187" width="268" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#Hashtags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1b-d6-mm2">
+                                <rect key="frame" x="35" y="212" width="304" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A1R-uq-2Sg">
-                                <rect key="frame" x="53" y="225" width="268" height="242"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VBe-dZ-snu">
+                                <rect key="frame" x="40" y="288" width="299" height="211"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOa-Xd-phT">
-                                <rect key="frame" x="53" y="552" width="112" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-Wi-MHs">
+                                <rect key="frame" x="21" y="582" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Attachment"/>
-                                <connections>
-                                    <action selector="UploadAttachment:" destination="rcU-Vy-NTd" eventType="touchUpInside" id="Qtm-ch-VN8"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prT-FN-94d">
-                                <rect key="frame" x="256" y="552" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPA-XW-JWz">
+                                <rect key="frame" x="277" y="582" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Note"/>
                             </button>
@@ -504,17 +502,21 @@
                         <color key="backgroundColor" red="0.70528107880000002" green="0.5611805916" blue="0.497033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="GUj-Ks-Lxd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="S4i-xz-XQU">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="IMw-M6-u6u">
+                            <connections>
+                                <action selector="Back:" destination="v3C-fE-top" id="ImD-7M-J96"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="Title" destination="dAe-l0-PGb" id="4cn-uX-LeK"/>
-                        <outlet property="content" destination="A1R-uq-2Sg" id="1bV-6D-zZ2"/>
-                        <outlet property="hashtags" destination="lKM-jR-k49" id="3Aq-Oj-BmK"/>
-                        <outlet property="noteTitle" destination="dAe-l0-PGb" id="RgJ-Dj-dWQ"/>
+                        <outlet property="noteDescription" destination="q1b-d6-mm2" id="WPv-s7-JbV"/>
+                        <outlet property="noteTopic" destination="AJy-FE-hs1" id="wyj-Am-AwO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXd-bj-1GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="rcU-Vy-NTd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="498" y="501"/>
+            <point key="canvasLocation" x="836" y="500.59970014992507"/>
         </scene>
         <!--Add Group View Controller-->
         <scene sceneID="Zs8-cm-GVg">
