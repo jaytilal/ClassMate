@@ -387,7 +387,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="txN-JP-wAx">
                                 <rect key="frame" x="16" y="60" width="343" height="523"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.8558236146" green="0.9202302564" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DNi-9A-fvI">
                                     <size key="itemSize" width="153" height="145"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -430,12 +430,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="AddGroup"/>
                                 <connections>
-                                    <action selector="AddNote:" destination="HsN-uT-r7g" eventType="touchUpInside" id="TNk-l2-vsM"/>
-                                    <segue destination="v3C-fE-top" kind="show" id="E13-o2-cWx"/>
+                                    <segue destination="v3C-fE-top" kind="presentation" id="bWz-6B-qLy"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.8558236146" green="0.9202302564" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="pwL-Hf-pML"/>
                     </view>
                     <connections>
@@ -496,11 +495,10 @@
                                 <state key="normal" title="Add Note"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.8558236146" green="0.9202302564" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="GUj-Ks-Lxd"/>
                     </view>
                     <connections>
-                        <outlet property="AddNote" destination="prT-FN-94d" id="CmA-pW-pLJ"/>
                         <outlet property="Title" destination="dAe-l0-PGb" id="4cn-uX-LeK"/>
                         <outlet property="content" destination="A1R-uq-2Sg" id="1bV-6D-zZ2"/>
                         <outlet property="hashtags" destination="lKM-jR-k49" id="3Aq-Oj-BmK"/>
@@ -565,7 +563,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.8558236146" green="0.9202302564" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="uc6-Zq-JZ0"/>
                     </view>
                     <navigationItem key="navigationItem" id="Uze-TD-r3a">
@@ -633,7 +631,6 @@
         <image name="note" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZQO-Zo-8Pi"/>
         <segue reference="pxN-Mq-Fqq"/>
     </inferredMetricsTieBreakers>
 </document>

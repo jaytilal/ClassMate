@@ -30,8 +30,5 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func UploadAttachment(_ sender: UIButton) {
         
-    }
-    
-    @IBOutlet weak var AddNote: UIButton!
-    
+    }    
 }

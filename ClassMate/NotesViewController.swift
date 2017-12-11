@@ -19,9 +19,6 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
      let reuseIdentifier = "NoteCell"
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBAction func AddNote(_ sender: UIButton) {
-        
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.NotesList.count
