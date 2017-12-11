@@ -18,6 +18,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     let databaseRef = Database.database().reference()
     let user = (Auth.auth().currentUser?.email)!
     var GroupsList = [String]()
+    var groupName : String = ""
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.GroupsList.count
@@ -28,7 +29,18 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
    
         cell.title.text = self.GroupsList[indexPath.item]
+        groupName = cell.title.text!
+        
         return cell
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing to go to notes")
+        if segue.identifier == "toAllNotes" {
+            if let toViewController = segue.destination as? NotesViewController {
+                toViewController.groupId = groupName
+                print(toViewController.groupId)
+            }
+        }
     }
     
     override func viewDidLoad() {
