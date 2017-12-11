@@ -59,18 +59,13 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        databaseRef.child("notes").queryOrdered(byChild: "name").observeSingleEvent(of: .value, with: { (snapShot) in
+        databaseRef.child("groups").child(groupId).child("notes").observeSingleEvent(of: .value, with: { (snapShot) in
             
             if let snapDict = snapShot.value as? [String:AnyObject]{
                 
                 for each in snapDict{
-                    let name = each.value["name"] as! String
-                    let members = each.value["members"] as! [String]
-                    if members.contains(self.user){
-                        self.NotesList.append(name)
-                    }
-                    
-                    print(self.NotesList)
+                    let name = each.value["topic"] as! String
+                    self.NotesList.append(name)
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                 }
             }
