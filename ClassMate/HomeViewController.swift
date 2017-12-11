@@ -27,12 +27,12 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
-   
+
         cell.title.text = self.GroupsList[indexPath.item]
-        groupName = cell.title.text!
-        
+
         return cell
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("preparing to go to notes")
         if segue.identifier == "toAllNotes" {
@@ -41,6 +41,13 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 print(toViewController.groupId)
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        print(cell.title.text!)
+        groupName = cell.title.text!
+        self.performSegue(withIdentifier: "toAllNotes", sender: self)
     }
     
     override func viewDidLoad() {

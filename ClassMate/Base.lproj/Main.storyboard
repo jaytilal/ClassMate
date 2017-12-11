@@ -337,12 +337,12 @@
                                         <connections>
                                             <outlet property="image" destination="bBB-GI-Ofx" id="gvL-Dc-jeK"/>
                                             <outlet property="title" destination="jNZ-UZ-tie" id="13f-xV-Hde"/>
-                                            <segue destination="HsN-uT-r7g" kind="show" identifier="toAllNotes" id="rNt-WH-B86"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="Dxh-7i-Qmm" id="NHi-hW-05e"/>
+                                    <outlet property="delegate" destination="Dxh-7i-Qmm" id="cyf-gn-A2h"/>
                                 </connections>
                             </collectionView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pT9-Al-zAy">
@@ -351,9 +351,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Dxh-7i-Qmm" id="Meq-YJ-mOY"/>
-                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.70528107881546021" green="0.56118059158325195" blue="0.49703299999237061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -364,6 +361,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ASn-3s-jKO" id="Vzl-Ts-Xsn"/>
+                        <segue destination="HsN-uT-r7g" kind="show" identifier="toAllNotes" id="Sqo-n1-Qam"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7d-c4-jG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
