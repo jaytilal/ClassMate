@@ -92,8 +92,8 @@ class ViewController: UIViewController {
                 if error == nil {
                     
                     //Print into the console if successfully logged in
+                    self.performSegue(withIdentifier: "toHome", sender: sender)
                     print("You have successfully logged in")
-                    
                 } else {
                     
                     //Tells the user that there is an error and then gets firebase to tell them the error
@@ -135,8 +135,7 @@ class ViewController: UIViewController {
                     if error == nil {
                         self.addUser()
                         print("You have successfully signed up")
-                        
-                        
+                        self.performSegue(withIdentifier: "toHome", sender: sender)
                     } else {
                         let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                         
