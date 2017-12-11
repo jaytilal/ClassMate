@@ -20,4 +20,5 @@ target 'ClassMate' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'FirebaseStorage'
 end

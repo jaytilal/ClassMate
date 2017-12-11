@@ -1,39 +1,43 @@
 //
-//  HomeViewController.swift
+//  NotesViewController.swift
 //  ClassMate
 //
-//  Created by Jayti Lal on 12/3/17.
+//  Created by Jayti Lal on 12/10/17.
 //  Copyright © 2017 Jayti Lal. All rights reserved.
 //
 
 import UIKit
-import FirebaseDatabase
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
-class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-   
-    let reuseIdentifier = "Cell"
-    
-    @IBOutlet weak var collectionView: UICollectionView!
+
+class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     let databaseRef = Database.database().reference()
     let user = (Auth.auth().currentUser?.email)!
-    var GroupsList = [String]()
+    var NotesList = [String]()
+     let reuseIdentifier = "NoteCell"
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBAction func AddNote(_ sender: UIButton) {
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.GroupsList.count
+        return self.NotesList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
-   
-        cell.title.text = self.GroupsList[indexPath.item]
+        
+        cell.title.text = self.NotesList[indexPath.item]
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        databaseRef.child("groups").queryOrdered(byChild: "name").observeSingleEvent(of: .value, with: { (snapShot) in
+        databaseRef.child("notes").queryOrdered(byChild: "name").observeSingleEvent(of: .value, with: { (snapShot) in
             
             if let snapDict = snapShot.value as? [String:AnyObject]{
                 
@@ -41,10 +45,10 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                     let name = each.value["name"] as! String
                     let members = each.value["members"] as! [String]
                     if members.contains(self.user){
-                        self.GroupsList.append(name)
+                        self.NotesList.append(name)
                     }
-                
-                    print(self.GroupsList)
+                    
+                    print(self.NotesList)
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                 }
             }
@@ -52,16 +56,12 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             print(Err.localizedDescription)
             
         })
-        
-        
-        
+        // Do any additional setup after loading the view.
     }
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
 }

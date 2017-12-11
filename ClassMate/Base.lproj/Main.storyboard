@@ -337,6 +337,7 @@
                                         <connections>
                                             <outlet property="image" destination="bBB-GI-Ofx" id="gvL-Dc-jeK"/>
                                             <outlet property="title" destination="jNZ-UZ-tie" id="13f-xV-Hde"/>
+                                            <segue destination="HsN-uT-r7g" kind="show" id="rYi-2W-l4B"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -374,6 +375,142 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7d-c4-jG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1063.2" y="-331.48425787106447"/>
+        </scene>
+        <!--Notes View Controller-->
+        <scene sceneID="z2E-30-dew">
+            <objects>
+                <viewController id="HsN-uT-r7g" customClass="NotesViewController" customModule="ClassMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6wk-kp-uIn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="txN-JP-wAx">
+                                <rect key="frame" x="16" y="60" width="343" height="523"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DNi-9A-fvI">
+                                    <size key="itemSize" width="153" height="145"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoteCell" id="kJc-5l-grx" customClass="NoteViewCell" customModule="ClassMate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="153" height="145"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="NcZ-Pb-Z81">
+                                                    <rect key="frame" x="11" y="0.0" width="130" height="110"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czs-qs-lwU">
+                                                    <rect key="frame" x="20" y="118" width="113" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="image" destination="NcZ-Pb-Z81" id="4XT-H5-yKm"/>
+                                            <outlet property="label" destination="Czs-qs-lwU" id="YfY-3i-VnD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="HsN-uT-r7g" id="MyI-Az-IKU"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHD-io-QSq">
+                                <rect key="frame" x="257" y="583" width="118" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="AddGroup"/>
+                                <connections>
+                                    <action selector="AddNote:" destination="HsN-uT-r7g" eventType="touchUpInside" id="TNk-l2-vsM"/>
+                                    <segue destination="v3C-fE-top" kind="show" id="E13-o2-cWx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pwL-Hf-pML"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="txN-JP-wAx" id="LL2-Wi-UwZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TYv-3h-tSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1063.2" y="500.59970014992507"/>
+        </scene>
+        <!--Add Note View Controller-->
+        <scene sceneID="jWv-9a-tmV">
+            <objects>
+                <viewController id="v3C-fE-top" customClass="AddNoteViewController" customModule="ClassMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rt1-y8-Cw5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add  New Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDO-r3-WiI">
+                                <rect key="frame" x="127" y="61" width="120" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dAe-l0-PGb">
+                                <rect key="frame" x="53" y="123" width="268" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#Hastags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKM-jR-k49">
+                                <rect key="frame" x="53" y="187" width="268" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A1R-uq-2Sg">
+                                <rect key="frame" x="53" y="225" width="268" height="242"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOa-Xd-phT">
+                                <rect key="frame" x="53" y="552" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Attachment"/>
+                                <connections>
+                                    <action selector="UploadAttachment:" destination="rcU-Vy-NTd" eventType="touchUpInside" id="Qtm-ch-VN8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prT-FN-94d">
+                                <rect key="frame" x="256" y="552" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Note"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GUj-Ks-Lxd"/>
+                    </view>
+                    <connections>
+                        <outlet property="AddNote" destination="prT-FN-94d" id="CmA-pW-pLJ"/>
+                        <outlet property="Title" destination="dAe-l0-PGb" id="4cn-uX-LeK"/>
+                        <outlet property="content" destination="A1R-uq-2Sg" id="1bV-6D-zZ2"/>
+                        <outlet property="hashtags" destination="lKM-jR-k49" id="3Aq-Oj-BmK"/>
+                        <outlet property="noteTitle" destination="dAe-l0-PGb" id="RgJ-Dj-dWQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KXd-bj-1GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rcU-Vy-NTd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-52" y="502.39880059970017"/>
         </scene>
         <!--Add Group View Controller-->
         <scene sceneID="Zs8-cm-GVg">
@@ -493,8 +630,10 @@
         <image name="backImage" width="650" height="462"/>
         <image name="group" width="256" height="256"/>
         <image name="logo" width="500" height="500"/>
+        <image name="note" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W6e-Qj-kr5"/>
+        <segue reference="ZQO-Zo-8Pi"/>
+        <segue reference="pxN-Mq-Fqq"/>
     </inferredMetricsTieBreakers>
 </document>
