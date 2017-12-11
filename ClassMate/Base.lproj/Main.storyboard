@@ -502,6 +502,9 @@
                                 <rect key="frame" x="21" y="582" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Attachment"/>
+                                <connections>
+                                    <action selector="uploadAttachment:" destination="v3C-fE-top" eventType="touchUpInside" id="qNi-zw-6pl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPA-XW-JWz">
                                 <rect key="frame" x="277" y="582" width="65" height="30"/>
