@@ -63,7 +63,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                         self.GroupsList.append(name)
                     }
                 
-                    print(self.GroupsList)
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                 }
             }
