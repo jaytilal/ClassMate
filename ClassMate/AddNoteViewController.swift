@@ -59,8 +59,7 @@ class AddNoteViewController: UIViewController {
         let storage = Storage.storage()
         let storageReference = storage.reference()
         
-        // storage/carImages/image.jpg
-        let imageName = "\temp.jpg"
+         let imageName = "\(Date().timeIntervalSince1970).jpg"
         let imagesReference = storageReference.child(Constants.Images.imagesFolder).child(imageName)
         
         if let imageData = UIImageJPEGRepresentation(image, 0.8) {
