@@ -12,14 +12,21 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class AddNoteViewController: UIViewController {
-    @IBOutlet weak var noteTitle: UITextField!
-    @IBOutlet weak var hashtags: UITextField!
-    @IBOutlet weak var content: UITextView!
+    @IBOutlet weak var noteTopic: UITextField!
+    @IBOutlet weak var noteDescription: UITextField!
     
+    @IBAction func Back(_ sender: UIBarButtonItem) {
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+            print("Back")
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("loaded")
         // Do any additional setup after loading the view.
     }
 
@@ -28,7 +35,4 @@ class AddNoteViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func UploadAttachment(_ sender: UIButton) {
-        
-    }    
 }

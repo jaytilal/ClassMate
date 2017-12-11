@@ -19,6 +19,11 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
      let reuseIdentifier = "NoteCell"
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func addNewNote(_ sender: UIButton) {
+        print("Hello123")
+        performSegue(withIdentifier: "toAddNote", sender: sender)
+        print("trying")
+    }
     
     @IBAction func Back(_ sender: UIBarButtonItem) {
         if let nav = self.navigationController {
@@ -34,9 +39,9 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! NoteViewCell
         
-        cell.title.text = self.NotesList[indexPath.item]
+        cell.label.text = self.NotesList[indexPath.item]
         return cell
     }
     
