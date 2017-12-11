@@ -20,6 +20,14 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
     @IBOutlet weak var collectionView: UICollectionView!
     
     
+    @IBAction func Back(_ sender: UIBarButtonItem) {
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+            print("Back")
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.NotesList.count
     }
