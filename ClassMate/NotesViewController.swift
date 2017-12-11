@@ -18,11 +18,23 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
     var NotesList = [String]()
      let reuseIdentifier = "NoteCell"
     @IBOutlet weak var collectionView: UICollectionView!
+    var groupId : String = "" 
     
+        
     @IBAction func addNewNote(_ sender: UIButton) {
-        print("Hello123")
+        print("prepared")
         performSegue(withIdentifier: "toAddNote", sender: sender)
-        print("trying")
+        print("sent")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing to add new note")
+        if segue.identifier == "toAddNote" {
+            if let toViewController = segue.destination as? AddNoteViewController {
+                toViewController.groupId = self.groupId
+                print(toViewController.groupId)
+            }
+        }
     }
     
     @IBAction func Back(_ sender: UIBarButtonItem) {

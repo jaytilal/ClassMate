@@ -337,12 +337,12 @@
                                         <connections>
                                             <outlet property="image" destination="bBB-GI-Ofx" id="gvL-Dc-jeK"/>
                                             <outlet property="title" destination="jNZ-UZ-tie" id="13f-xV-Hde"/>
-                                            <segue destination="HsN-uT-r7g" kind="show" id="rNt-WH-B86"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="Dxh-7i-Qmm" id="NHi-hW-05e"/>
+                                    <outlet property="delegate" destination="Dxh-7i-Qmm" id="cyf-gn-A2h"/>
                                 </connections>
                             </collectionView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pT9-Al-zAy">
@@ -351,9 +351,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Dxh-7i-Qmm" id="Meq-YJ-mOY"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQu-Dr-5MR">
                                 <rect key="frame" x="263" y="245" width="96" height="94"/>
@@ -376,6 +373,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ASn-3s-jKO" id="Vzl-Ts-Xsn"/>
+                        <segue destination="HsN-uT-r7g" kind="show" identifier="toAllNotes" id="Sqo-n1-Qam"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7d-c4-jG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -509,6 +507,9 @@
                                 <rect key="frame" x="277" y="582" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Note"/>
+                                <connections>
+                                    <action selector="addNoteToDB:" destination="v3C-fE-top" eventType="touchUpInside" id="jW5-sb-Ln6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70528107880000002" green="0.5611805916" blue="0.497033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -522,6 +523,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noteContents" destination="VBe-dZ-snu" id="FFx-bQ-6dh"/>
                         <outlet property="noteDescription" destination="q1b-d6-mm2" id="WPv-s7-JbV"/>
                         <outlet property="noteTopic" destination="AJy-FE-hs1" id="wyj-Am-AwO"/>
                     </connections>
