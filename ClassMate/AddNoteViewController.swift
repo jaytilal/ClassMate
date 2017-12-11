@@ -69,6 +69,7 @@ class AddNoteViewController: UIViewController {
             
             let uploadTask = imagesReference.putData(imageData, metadata: metadata, completion: { (metadata, error) in
                 if let metadata = metadata {
+                    self.showToast(message: "Image Uploaded!")
                     completionBlock(metadata.downloadURL(), nil)
                 } else {
                     completionBlock(nil, error?.localizedDescription)
@@ -102,6 +103,7 @@ class AddNoteViewController: UIViewController {
         addNote()
         print("note added to Database")
         self.showToast(message: "Note Added!")
+        self.downloadURL = ""
     }
     override func viewDidLoad() {
         super.viewDidLoad()
