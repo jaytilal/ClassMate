@@ -13,17 +13,48 @@ class ShowNoteViewController: UIViewController {
     @IBOutlet weak var Topic: UILabel!
     @IBOutlet weak var Content: UITextView!
     @IBOutlet weak var Description: UILabel!
-    
+    @IBOutlet weak var Image: UIImageView!
+    var url = ""
     var DisplayNote = Note()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Topic.text = DisplayNote.noteLabel
         Content.text = DisplayNote.noteContent
         Description.text = DisplayNote.noteDesc
-        
+        url = DisplayNote.downloadUrl
+        if url != ""{
+            getImage(url: url)
+        }
         // Do any additional setup after loading the view.
     }
-
+    func getImage(url : String) {
+        let PictureURL = URL(string: url)!
+    
+        let session = URLSession(configuration: .default)
+        var image = UIImage()
+       let downloadPicTask = session.dataTask(with:PictureURL) { (data, response, error) in
+            if let e = error {
+                print("Error downloading cat picture: \(e)")
+            } else {
+                if let res = response as? HTTPURLResponse {
+                    print("Downloaded  picture with response code \(res.statusCode)")
+                    if let imageData = data {
+                        image = UIImage(data: imageData)!
+                         self.Image.image = image
+                    } else {
+                        print("Couldn't get image: Image is nil")
+                    }
+                } else {
+                    print("Couldn't get response code for some reason")
+                }
+            }
+        }
+        
+        downloadPicTask.resume()
+    }
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
