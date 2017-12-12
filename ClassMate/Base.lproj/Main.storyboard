@@ -453,11 +453,17 @@
                                 <action selector="Back:" destination="HsN-uT-r7g" id="Qkr-7b-bOp"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Leave Group" id="vB0-tQ-wfY">
+                            <connections>
+                                <action selector="LeaveGroup:" destination="HsN-uT-r7g" id="ZwI-tj-DTe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="txN-JP-wAx" id="LL2-Wi-UwZ"/>
                         <segue destination="v3C-fE-top" kind="show" identifier="toAddNote" id="TaV-yN-pmI"/>
                         <segue destination="l8h-CG-Zi6" kind="show" identifier="toShowNote" id="fNl-SR-U6X"/>
+                        <segue destination="Dxh-7i-Qmm" kind="show" identifier="backToHome" id="agX-tq-hXw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYv-3h-tSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -712,4 +718,7 @@
         <image name="notes" width="1920" height="1080"/>
         <image name="plusbtn" width="126" height="126"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="agX-tq-hXw"/>
+    </inferredMetricsTieBreakers>
 </document>

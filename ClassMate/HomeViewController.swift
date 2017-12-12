@@ -57,11 +57,13 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 
                 for each in snapDict{
                     let name = each.value["name"] as! String
-                    let members = each.value["members"] as! [String]
-                    if members.contains(self.user){
-                        self.GroupsList.append(name)
+                    if let list = each.value["members"]! {
+                        let members = list as! [String]
+                        if members.contains(self.user){
+                            self.GroupsList.append(name)
+                        }
+
                     }
-                    
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                 }
             }

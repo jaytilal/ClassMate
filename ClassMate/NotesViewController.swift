@@ -27,7 +27,22 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
     @IBOutlet weak var collectionView: UICollectionView!
     var groupId : String = "" 
     
+    @IBAction func LeaveGroup(_ sender: UIBarButtonItem) {
+        databaseRef.child("groups").child(groupId).child("members").observe(.value, with: { snapshot in
+            if let members = snapshot.value as? [String] {
+                for i in 0..<members.count {
+                    if members[i] == self.user {
+                        self.databaseRef.child("groups").child(self.groupId).child("members").child("\(i)").removeValue()
+                        self.showToast(message: "Left " + self.groupId)
+                       self.performSegue(withIdentifier: "backToHome", sender: sender)
+                    }
+                }
+            }
+            
+        })
         
+    }
+    
     @IBAction func addNewNote(_ sender: UIButton) {
         print("prepared")
         performSegue(withIdentifier: "toAddNote", sender: sender)
