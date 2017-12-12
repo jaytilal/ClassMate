@@ -49,9 +49,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         groupName = cell.title.text!
         self.performSegue(withIdentifier: "toAllNotes", sender: self)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        self.GroupsList = [String]()
         databaseRef.child("groups").queryOrdered(byChild: "name").observeSingleEvent(of: .value, with: { (snapShot) in
             
             if let snapDict = snapShot.value as? [String:AnyObject]{
@@ -62,7 +61,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                     if members.contains(self.user){
                         self.GroupsList.append(name)
                     }
-                
+                    
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                 }
             }
@@ -70,6 +69,10 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             print(Err.localizedDescription)
             
         })
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      
     }
     
     override func didReceiveMemoryWarning() {

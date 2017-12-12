@@ -76,8 +76,8 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
         self.performSegue(withIdentifier: "toShowNote", sender: self)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        self.NotesList = [Note]()
         databaseRef.child("groups").child(groupId).child("notes").observeSingleEvent(of: .value, with: { (snapShot) in
             
             if let snapDict = snapShot.value as? [String:AnyObject]{
@@ -96,6 +96,10 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
             print(Err.localizedDescription)
             
         })
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
 
