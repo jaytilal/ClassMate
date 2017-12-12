@@ -332,6 +332,11 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gd-Ma-HTm">
+                                                    <rect key="frame" x="115" y="10" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Edit"/>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <connections>
@@ -719,6 +724,6 @@
         <image name="plusbtn" width="126" height="126"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="agX-tq-hXw"/>
+        <segue reference="drj-M6-3bT"/>
     </inferredMetricsTieBreakers>
 </document>
