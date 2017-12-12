@@ -11,6 +11,7 @@
 		2EABA2B404311649D0A52DBB /* Pods_ClassMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD2A7AA371E9B10F0E97F8D /* Pods_ClassMate.framework */; };
 		600587F91FD503F700615904 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600587F81FD503F700615904 /* HomeViewController.swift */; };
 		604174061FDF4530005BBCBA /* ShowNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604174051FDF4530005BBCBA /* ShowNoteViewController.swift */; };
+		604174081FDF519D005BBCBA /* DisplayImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604174071FDF519D005BBCBA /* DisplayImageViewController.swift */; };
 		6059433B1FD492230093CB97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059433A1FD492230093CB97 /* AppDelegate.swift */; };
 		605943401FD492230093CB97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6059433E1FD492230093CB97 /* Main.storyboard */; };
 		605943431FD492230093CB97 /* ClassMate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 605943411FD492230093CB97 /* ClassMate.xcdatamodeld */; };
@@ -55,6 +56,7 @@
 		600587F81FD503F700615904 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		602DA9C1D616EF072C591FC4 /* Pods-ClassMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassMate/Pods-ClassMate.release.xcconfig"; sourceTree = "<group>"; };
 		604174051FDF4530005BBCBA /* ShowNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNoteViewController.swift; sourceTree = "<group>"; };
+		604174071FDF519D005BBCBA /* DisplayImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageViewController.swift; sourceTree = "<group>"; };
 		605943371FD492230093CB97 /* ClassMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6059433A1FD492230093CB97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6059433F1FD492230093CB97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				60FD9ACB1FDE1753000E0D00 /* NoteViewCell.swift */,
 				60FD9ACD1FDE1A69000E0D00 /* AddNoteViewController.swift */,
 				604174051FDF4530005BBCBA /* ShowNoteViewController.swift */,
+				604174071FDF519D005BBCBA /* DisplayImageViewController.swift */,
 			);
 			path = ClassMate;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				604174061FDF4530005BBCBA /* ShowNoteViewController.swift in Sources */,
 				60FD9ACC1FDE1753000E0D00 /* NoteViewCell.swift in Sources */,
 				60FD9ACE1FDE1A69000E0D00 /* AddNoteViewController.swift in Sources */,
+				604174081FDF519D005BBCBA /* DisplayImageViewController.swift in Sources */,
 				6059433B1FD492230093CB97 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

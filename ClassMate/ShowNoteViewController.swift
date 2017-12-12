@@ -26,8 +26,18 @@ class ShowNoteViewController: UIViewController {
         url = DisplayNote.downloadUrl
         if url != ""{
             getImage(url: url)
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ShowNoteViewController.imageTapped(gesture:)))
+            Image.addGestureRecognizer(tapGesture)
+            Image.isUserInteractionEnabled = true
         }
-        // Do any additional setup after loading the view.
+    }
+    
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
+        
+        if (gesture.view as? UIImageView) != nil {
+            print("Image Tapped")
+            self.performSegue(withIdentifier: "toShowImage", sender: self)
+        }
     }
     func getImage(url : String) {
         let PictureURL = URL(string: url)!
@@ -60,7 +70,14 @@ class ShowNoteViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing to go to image")
+        if segue.identifier == "toShowImage" {
+            if let toViewController = segue.destination as? DisplayImageViewController {
+                toViewController.Url = self.url
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
