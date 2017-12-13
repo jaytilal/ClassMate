@@ -24,6 +24,7 @@
 		609A3CC01FDDC182001C7612 /* AMInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A3CBF1FDDC182001C7612 /* AMInputView.swift */; };
 		60B394441FE0AA980011CAC6 /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B394431FE0AA980011CAC6 /* EditGroupViewController.swift */; };
 		60B394461FE0EF0F0011CAC6 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B394451FE0EF0F0011CAC6 /* ImageCollectionViewCell.swift */; };
+		60B3944A1FE1B9D60011CAC6 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B394491FE1B9D60011CAC6 /* SearchTableViewCell.swift */; };
 		60FD9ABA1FDDC567000E0D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60FD9AB91FDDC567000E0D00 /* Assets.xcassets */; };
 		60FD9ABC1FDDE0B6000E0D00 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD9ABB1FDDE0B6000E0D00 /* AddGroupViewController.swift */; };
 		60FD9AC01FDE0443000E0D00 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD9ABF1FDE0443000E0D00 /* CollectionViewCell.swift */; };
@@ -80,6 +81,7 @@
 		609A3CBF1FDDC182001C7612 /* AMInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMInputView.swift; sourceTree = "<group>"; };
 		60B394431FE0AA980011CAC6 /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
 		60B394451FE0EF0F0011CAC6 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		60B394491FE1B9D60011CAC6 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		60FD9AB91FDDC567000E0D00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60FD9ABB1FDDE0B6000E0D00 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		60FD9ABF1FDE0443000E0D00 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ../CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				604174071FDF519D005BBCBA /* DisplayImageViewController.swift */,
 				60B394431FE0AA980011CAC6 /* EditGroupViewController.swift */,
 				60B394451FE0EF0F0011CAC6 /* ImageCollectionViewCell.swift */,
+				60B394491FE1B9D60011CAC6 /* SearchTableViewCell.swift */,
 			);
 			path = ClassMate;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				609A3CC01FDDC182001C7612 /* AMInputView.swift in Sources */,
 				60FD9ACA1FDE171E000E0D00 /* NotesViewController.swift in Sources */,
 				FE92E62C1FE1277500B29B43 /* Groups.swift in Sources */,
+				60B3944A1FE1B9D60011CAC6 /* SearchTableViewCell.swift in Sources */,
 				60FD9ABC1FDDE0B6000E0D00 /* AddGroupViewController.swift in Sources */,
 				604174061FDF4530005BBCBA /* ShowNoteViewController.swift in Sources */,
 				60FD9ACC1FDE1753000E0D00 /* NoteViewCell.swift in Sources */,

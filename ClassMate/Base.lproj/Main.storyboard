@@ -313,7 +313,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="WUB-gx-r9C" detailTextLabel="mrT-OD-4Kc" rowHeight="68" style="IBUITableViewCellStyleSubtitle" id="a5m-fW-TsA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="WUB-gx-r9C" detailTextLabel="mrT-OD-4Kc" rowHeight="68" style="IBUITableViewCellStyleSubtitle" id="a5m-fW-TsA" customClass="SearchTableViewCell" customModule="ClassMate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a5m-fW-TsA" id="Zor-Si-QMw">
@@ -327,6 +327,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9c-6s-Jq5">
+                                                    <rect key="frame" x="164" y="18" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="JoinGroup:" destination="XL8-7T-s1V" eventType="touchUpInside" id="E3q-DX-9bR"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mrT-OD-4Kc">
                                                     <rect key="frame" x="15" y="37.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
@@ -336,6 +344,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="Join" destination="X9c-6s-Jq5" id="JOT-to-hEc"/>
+                                            <outlet property="Subtitle" destination="mrT-OD-4Kc" id="49K-sy-PIs"/>
+                                            <outlet property="Title" destination="WUB-gx-r9C" id="t0s-J7-RwS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -346,6 +359,7 @@
                     <connections>
                         <outlet property="searchFooter" destination="A9p-vK-xKL" id="Agb-FG-HvS"/>
                         <outlet property="tableView" destination="FSC-YQ-T2h" id="Ko0-hz-Aqy"/>
+                        <segue destination="HsN-uT-r7g" kind="show" identifier="toViewSearchGroup" id="GjU-MD-1nz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02Z-43-RxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -946,6 +960,7 @@
         <image name="search" width="704" height="511"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="drj-M6-3bT"/>
+        <segue reference="GjU-MD-1nz"/>
+        <segue reference="agX-tq-hXw"/>
     </inferredMetricsTieBreakers>
 </document>
