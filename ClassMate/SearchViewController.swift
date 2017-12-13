@@ -23,7 +23,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func JoinGroup(_ sender: UIButton) {
         groupName = (sender.layer.value(forKey: "GroupName") as! String)
-        print("Going to Join Group")
         print(groupName)
         addMember()
         
@@ -46,10 +45,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                     else{
                         self.members.append(user)
-                        self.databaseRef.child("groups").child(self.groupName).child("members").setValue(self.members)
+                        print("Join Group in Search")
+                        print(self.members);
                         self.showToast(message: "User added!")
                     }
                 }
+                self.databaseRef.child("groups").child(self.groupName).child("members").setValue(self.members)
             }
             
             

@@ -79,7 +79,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                     }
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                 }
-                
+                print("Home")
+                print(self.GroupsList)
             }
         }, withCancel: {(Err) in
             print(Err.localizedDescription)
