@@ -47,7 +47,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                         self.members.append(user)
                         print("Join Group in Search")
                         print(self.members);
-                        self.showToast(message: "User added!")
+                        self.showToast(message: "You joined the group")
                     }
                 }
                 self.databaseRef.child("groups").child(self.groupName).child("members").setValue(self.members)
@@ -189,18 +189,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
     
 }
 

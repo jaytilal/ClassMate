@@ -13,9 +13,10 @@ import FirebaseDatabase
 
 class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource{
     @IBOutlet weak var Content: UITextView!
-    @IBOutlet weak var Description: UITextField!
-    @IBOutlet weak var Topic: UITextField!
     @IBOutlet weak var thumbnails: UICollectionView!
+    @IBOutlet weak var Topic: UILabel!
+    @IBOutlet weak var Description: UITextField!
+    
     var url = [String]()
     var DisplayNote = Note()
     let reuseidentifier = "thumbnail"
