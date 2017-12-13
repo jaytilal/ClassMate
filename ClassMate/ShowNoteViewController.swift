@@ -18,6 +18,8 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
     var DisplayNote = Note()
     let reuseidentifier = "thumbnail"
     var downloadLink = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Topic.text = DisplayNote.noteLabel
@@ -27,13 +29,6 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
 
     }
     
-    @objc func imageTapped(gesture: UIGestureRecognizer) {
-        
-        if (gesture.view as? UIImageView) != nil {
-            print("Image Tapped")
-            self.performSegue(withIdentifier: "toShowImage", sender: self)
-        }
-    }
     func getImage(url : String) -> UIImage{
         let PictureURL = URL(string: url)!
     
@@ -99,9 +94,7 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
         
         task.resume()
         self.thumbnails.reloadSections(IndexSet(integer : 0))
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ShowNoteViewController.imageTapped(gesture:)))
-        cell.ImageThumbnail.addGestureRecognizer(tapGesture)
-        cell.ImageThumbnail.isUserInteractionEnabled = true
+
         return cell
     }
     
@@ -115,7 +108,8 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
         let cell = collectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
         print(cell.downloadUrl)
         self.downloadLink = cell.downloadUrl
-        self.performSegue(withIdentifier: "toShowNote", sender: self)
+        print("Image Tapped")
+        self.performSegue(withIdentifier: "toShowImage", sender: self)
     }
     
 
