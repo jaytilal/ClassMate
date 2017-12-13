@@ -11,7 +11,7 @@ import FirebaseDatabase
 import Firebase
 
 class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-   
+    
     let reuseIdentifier = "Cell"
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,6 +20,15 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var GroupsList = [String]()
     var groupName : String = ""
     
+    @IBAction func EditGroup(_ sender: UIButton) {
+        groupName = (sender.layer.value(forKey: "GroupName") as! String)
+        print("Going to Edit")
+        print(groupName)
+        performSegue(withIdentifier: "toEditGroup", sender: sender)
+    }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.GroupsList.count
     }
@@ -27,16 +36,24 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionViewCell
-
+        
         cell.title.text = self.GroupsList[indexPath.item]
+        cell.Edit.layer.setValue(cell.title.text, forKey: "GroupName")
+        cell.Edit.addTarget(self, action: "EditGroup:", for: UIControlEvents.touchUpInside)
 
+        
         return cell
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("preparing to go to notes")
         if segue.identifier == "toAllNotes" {
             if let toViewController = segue.destination as? NotesViewController {
+                toViewController.groupId = groupName
+                print(toViewController.groupId)
+            }
+        }
+        if segue.identifier == "toEditGroup"{
+            if let toViewController = segue.destination as? EditGroupViewController {
                 toViewController.groupId = groupName
                 print(toViewController.groupId)
             }
@@ -57,13 +74,11 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 for each in snapDict{
                     let name = each.value["name"] as! String
                     let members = each.value["members"]! as! [String]!
-                        if (members?.contains(self.user))!{
-                        
-                                self.GroupsList.append(name)
-                            }
-                        
-                        self.collectionView.reloadSections(IndexSet(integer : 0))
+                    if (members?.contains(self.user))!{
+                        self.GroupsList.append(name)
                     }
+                    self.collectionView.reloadSections(IndexSet(integer : 0))
+                }
                 
             }
         }, withCancel: {(Err) in
@@ -81,7 +96,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
     }
     
     override func didReceiveMemoryWarning() {

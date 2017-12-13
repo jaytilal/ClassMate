@@ -10,7 +10,7 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
-    
+    @IBOutlet weak var Edit: UIButton!
     func displayContent(img : UIImage,name : String){
         title.text = name
         image.image = img
