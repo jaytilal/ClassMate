@@ -16,6 +16,8 @@ class Note{
     var noteDesc = ""
     var noteContent = ""
     var downloadUrl = [String]()
+    var key = ""
+    var group = ""
 }
 
 class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
@@ -102,7 +104,10 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
                     note.noteContent = each.value["content"] as! String
                     if let val = each.value["downloadURL"] as! [String]!{
                         note.downloadUrl = each.value["downloadURL"] as! [String]!
+                         note.key = each.key
                     }
+                    note.group = self.groupId
+                   
                     self.NotesList.append(note)
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                     }
