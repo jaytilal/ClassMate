@@ -8,28 +8,23 @@
 
 import UIKit
 
-class ShowNoteViewController: UIViewController {
-
+class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource{
     @IBOutlet weak var Topic: UILabel!
     @IBOutlet weak var Content: UITextView!
     @IBOutlet weak var Description: UILabel!
-    @IBOutlet weak var Image: UIImageView!
-    var url = ""
+    
+    @IBOutlet weak var thumbnails: UICollectionView!
+    var url = [String]()
     var DisplayNote = Note()
-    
-    
+    let reuseidentifier = "thumbnail"
+    var downloadLink = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         Topic.text = DisplayNote.noteLabel
         Content.text = DisplayNote.noteContent
         Description.text = DisplayNote.noteDesc
         url = DisplayNote.downloadUrl
-        if url != ""{
-            getImage(url: url)
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ShowNoteViewController.imageTapped(gesture:)))
-            Image.addGestureRecognizer(tapGesture)
-            Image.isUserInteractionEnabled = true
-        }
+
     }
     
     @objc func imageTapped(gesture: UIGestureRecognizer) {
@@ -39,7 +34,7 @@ class ShowNoteViewController: UIViewController {
             self.performSegue(withIdentifier: "toShowImage", sender: self)
         }
     }
-    func getImage(url : String) {
+    func getImage(url : String) -> UIImage{
         let PictureURL = URL(string: url)!
     
         let session = URLSession(configuration: .default)
@@ -52,7 +47,6 @@ class ShowNoteViewController: UIViewController {
                     print("Downloaded  picture with response code \(res.statusCode)")
                     if let imageData = data {
                         image = UIImage(data: imageData)!
-                         self.Image.image = image
                     } else {
                         print("Couldn't get image: Image is nil")
                     }
@@ -61,8 +55,9 @@ class ShowNoteViewController: UIViewController {
                 }
             }
         }
-        
         downloadPicTask.resume()
+        return image
+       
     }
    
     override func didReceiveMemoryWarning() {
@@ -74,18 +69,54 @@ class ShowNoteViewController: UIViewController {
         print("preparing to go to image")
         if segue.identifier == "toShowImage" {
             if let toViewController = segue.destination as? DisplayImageViewController {
-                toViewController.Url = self.url
+                toViewController.Url = self.downloadLink
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // get a reference to our storyboard cell
+         let session = URLSession(configuration: .default)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseidentifier, for: indexPath as IndexPath) as! ImageCollectionViewCell
+        cell.downloadUrl = self.url[indexPath.item]
+        
+        let task = session.dataTask(with: URL(string:cell.downloadUrl)!)
+        { (data, response, error) in
+            if let e = error {
+                print("Error downloading picture: \(e)")
+            } else {
+                if let res = response as? HTTPURLResponse {
+                    print("Downloaded  picture with response code \(res.statusCode)")
+                    if let imageData = data {
+                        cell.ImageThumbnail.image = UIImage(data: imageData)!
+                    } else {
+                        print("Couldn't get image: Image is nil")
+                    }
+                } else {
+                    print("Couldn't get response code for some reason")
+                }
+            }
+        }
+        
+        task.resume()
+        self.thumbnails.reloadSections(IndexSet(integer : 0))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ShowNoteViewController.imageTapped(gesture:)))
+        cell.ImageThumbnail.addGestureRecognizer(tapGesture)
+        cell.ImageThumbnail.isUserInteractionEnabled = true
+        return cell
     }
-    */
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.thumbnails.reloadSections(IndexSet(integer : 0))
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.url.count
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
+        print(cell.downloadUrl)
+        self.downloadLink = cell.downloadUrl
+        self.performSegue(withIdentifier: "toShowNote", sender: self)
+    }
+    
 
 }

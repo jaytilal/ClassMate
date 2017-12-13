@@ -15,7 +15,7 @@ class Note{
     var noteLabel = ""
     var noteDesc = ""
     var noteContent = ""
-    var downloadUrl = ""
+    var downloadUrl = [String]()
 }
 
 class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
@@ -44,9 +44,7 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
     }
     
     @IBAction func addNewNote(_ sender: UIButton) {
-        print("prepared")
         performSegue(withIdentifier: "toAddNote", sender: sender)
-        print("sent")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,15 +100,19 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
                     note.noteLabel = each.value["topic"] as! String
                     note.noteDesc = each.value["description"] as! String
                     note.noteContent = each.value["content"] as! String
-                    note.downloadUrl = each.value["downloadURL"] as! String
+                    if let val = each.value["downloadURL"] as! [String]!{
+                        note.downloadUrl = each.value["downloadURL"] as! [String]!
+                    }
                     self.NotesList.append(note)
+                    self.collectionView.reloadSections(IndexSet(integer : 0))
+                    }
+                
                 }
-                self.collectionView.reloadSections(IndexSet(integer : 0))
-            }
         }, withCancel: {(Err) in
             print(Err.localizedDescription)
             
         })
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

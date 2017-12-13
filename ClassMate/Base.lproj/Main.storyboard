@@ -517,10 +517,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9g-6f-sxC">
-                                <rect key="frame" x="54" y="417" width="266" height="200"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6uw-o6-EW7">
+                                <rect key="frame" x="52" y="405" width="281" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hgg-bf-qFO">
+                                    <size key="itemSize" width="60" height="61"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thumbnail" id="diZ-Hh-7Fh" customClass="ImageCollectionViewCell" customModule="ClassMate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GI4-g0-r2H">
+                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="77"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="ImageThumbnail" destination="GI4-g0-r2H" id="iDA-vQ-lPM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="l8h-CG-Zi6" id="DPb-0i-VKc"/>
+                                    <outlet property="delegate" destination="l8h-CG-Zi6" id="d0H-SB-qyp"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.70528107880000002" green="0.5611805916" blue="0.497033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="q5G-my-HBD"/>
@@ -528,8 +558,8 @@
                     <connections>
                         <outlet property="Content" destination="0s7-zC-1wN" id="kWA-ig-wpT"/>
                         <outlet property="Description" destination="foe-mq-RSh" id="Mp6-Ff-FFT"/>
-                        <outlet property="Image" destination="Q9g-6f-sxC" id="B6h-zj-vfQ"/>
                         <outlet property="Topic" destination="9II-NP-aST" id="uHc-La-2I6"/>
+                        <outlet property="thumbnails" destination="6uw-o6-EW7" id="Zkj-Oo-zvI"/>
                         <segue destination="7FY-bB-MNK" kind="show" identifier="toShowImage" id="uAN-8w-LYr"/>
                     </connections>
                 </viewController>

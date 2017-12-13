@@ -28,7 +28,7 @@ class AddNoteViewController: UIViewController {
     let user = (Auth.auth().currentUser?.email)!
     var groupId : String!
     @IBOutlet weak var noteContents: UITextView!
-    var downloadURL = ""
+    var downloadURL = [String]()
     @IBAction func Back(_ sender: UIBarButtonItem) {
         if let nav = self.navigationController {
             nav.popViewController(animated: true)
@@ -50,7 +50,7 @@ class AddNoteViewController: UIViewController {
                     "description": noteDescription.text!,
                     "content": noteContents.text!,
                     "downloadURL" : downloadURL
-        ]
+            ] as [String : Any]
       
         reference.child(key).setValue(note)
         
@@ -102,8 +102,8 @@ class AddNoteViewController: UIViewController {
         addNote()
         print("note added to Database")
         self.showToast(message: "Note Added!")
-        self.downloadURL = ""
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded")
@@ -133,7 +133,7 @@ extension AddNoteViewController: UIImagePickerControllerDelegate, UINavigationCo
                 guard self != nil else {
                     return
                 }
-                self?.downloadURL = (fileURL!.absoluteString)
+                self?.downloadURL.append(fileURL!.absoluteString)
                 print((fileURL?.absoluteString)!)
                 print(errorMessage ?? "No error")
                 
