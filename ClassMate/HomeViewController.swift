@@ -71,6 +71,14 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             
         })
     }
+    
+    
+    @IBAction func SignOut(_ sender: UIBarButtonItem) {
+        
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "toLogin", sender: sender)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
       

@@ -374,6 +374,12 @@
                         <viewLayoutGuide key="safeArea" id="PXn-12-w5z"/>
                     </view>
                     <navigationItem key="navigationItem" id="OKq-4S-6X7">
+                        <barButtonItem key="leftBarButtonItem" title="SignOut" id="vc0-Bl-OFi">
+                            <connections>
+                                <action selector="SignOut:" destination="Dxh-7i-Qmm" id="Su5-Sf-Icb"/>
+                                <segue destination="jVV-NB-QcJ" kind="presentation" identifier="toLogin" id="fUl-tD-7na"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="bCV-QE-fYF"/>
                     </navigationItem>
                     <connections>
