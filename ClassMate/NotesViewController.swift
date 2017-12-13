@@ -36,7 +36,7 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
                     if members[i] == self.user {
                         self.databaseRef.child("groups").child(self.groupId).child("members").child("\(i)").setValue("removed"+self.user)
                         self.showToast(message: "Left " + self.groupId)
-                       self.performSegue(withIdentifier: "backToHome", sender: sender)
+                      
                     }
                 }
             }

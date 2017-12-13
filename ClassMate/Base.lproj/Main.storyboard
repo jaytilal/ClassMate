@@ -328,9 +328,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9c-6s-Jq5">
-                                                    <rect key="frame" x="164" y="18" width="46" height="30"/>
+                                                    <rect key="frame" x="172" y="18" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Join"/>
                                                     <connections>
                                                         <action selector="JoinGroup:" destination="XL8-7T-s1V" eventType="touchUpInside" id="E3q-DX-9bR"/>
                                                     </connections>

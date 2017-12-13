@@ -158,8 +158,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         print("selected")
         print(cell.Title.text!)
         groupName = cell.Title.text!
-        
-        
         self.performSegue(withIdentifier: "toViewSearchGroup", sender: self)
     }
     
