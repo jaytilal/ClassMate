@@ -32,7 +32,7 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
             if let members = snapshot.value as? [String] {
                 for i in 0..<members.count {
                     if members[i] == self.user {
-                        self.databaseRef.child("groups").child(self.groupId).child("members").child("\(i)").removeValue()
+                        self.databaseRef.child("groups").child(self.groupId).child("members").child("\(i)").setValue("removed"+self.user)
                         self.showToast(message: "Left " + self.groupId)
                        self.performSegue(withIdentifier: "backToHome", sender: sender)
                     }
