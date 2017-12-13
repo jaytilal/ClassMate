@@ -34,6 +34,11 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
         group = DisplayNote.group
         key = DisplayNote.key
         url = DisplayNote.downloadUrl
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.reloadInputViews()
         self.thumbnails.reloadSections(IndexSet(integer : 0))
     }
     
@@ -66,7 +71,8 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
     @IBAction func SaveChanges(_ sender: UIButton) {
         addNote()
         showToast(message: "Saved Changes!")
-        reloadInputViews()
+        thumbnails.reloadData()
+        thumbnails.reloadSections(IndexSet(integer : 0))
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("preparing to go to image")
@@ -127,7 +133,10 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
         } else {
             completionBlock(nil, "Image couldn't be converted to Data.")
         }
+        thumbnails.reloadData()
+        thumbnails.reloadSections(IndexSet(integer : 0))
         reloadInputViews()
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
