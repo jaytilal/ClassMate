@@ -47,22 +47,23 @@ class EditGroupViewController: UIViewController {
     @IBAction func SaveChanges(_ sender: UIButton) {
         let ref = self.databaseRef.child("groups").child(groupId)
         ref.child("members").setValue(members)
-        ref.child("hastags").setValue(GroupDescription.text!)
+        ref.child("hashtags").setValue(GroupDescription.text!)
         ref.child("name").setValue(GroupName.text!)
         self.showToast(message: "Saved Changes!")
+        reloadInputViews()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(groupId)
+     
+        self.reloadInputViews()
         databaseRef.child("groups").child(groupId).observeSingleEvent(of: .value, with: { (snapShot) in
             let snap = snapShot.value as?  [String: AnyObject]
             if snapShot.hasChild("name"){
@@ -76,10 +77,6 @@ class EditGroupViewController: UIViewController {
             if snapShot.hasChild("members"){
                 if let val =  snapShot.childSnapshot(forPath: "members").value as? [String]{
                     self.members = val
-                    print("members!!!")
-                    print(self.members)
-                    self.reloadInputViews()
-                    
                 }
             }
             
