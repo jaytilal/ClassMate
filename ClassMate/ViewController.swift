@@ -282,7 +282,9 @@ class ViewController: UIViewController {
         UIView.commitAnimations()
         
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     //MARK: - hide status bar in swift3
     
     override var prefersStatusBarHidden: Bool {
