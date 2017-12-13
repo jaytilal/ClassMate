@@ -31,6 +31,9 @@
 		60FD9ACC1FDE1753000E0D00 /* NoteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD9ACB1FDE1753000E0D00 /* NoteViewCell.swift */; };
 		60FD9ACE1FDE1A69000E0D00 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD9ACD1FDE1A69000E0D00 /* AddNoteViewController.swift */; };
 		83B5A556A97045E0576928C7 /* Pods_ClassMateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD46AFF1B481ECBEE24C7548 /* Pods_ClassMateTests.framework */; };
+		FE92E62B1FE1277500B29B43 /* SearchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE92E6281FE1277500B29B43 /* SearchFooter.swift */; };
+		FE92E62C1FE1277500B29B43 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE92E6291FE1277500B29B43 /* Groups.swift */; };
+		FE92E62D1FE1277500B29B43 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE92E62A1FE1277500B29B43 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,9 @@
 		9F1FFDF5839765BA4AEC6CD4 /* Pods-ClassMateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassMateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassMateTests/Pods-ClassMateTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD46AFF1B481ECBEE24C7548 /* Pods_ClassMateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassMateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD2A7AA371E9B10F0E97F8D /* Pods_ClassMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE92E6281FE1277500B29B43 /* SearchFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFooter.swift; sourceTree = "<group>"; };
+		FE92E6291FE1277500B29B43 /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		FE92E62A1FE1277500B29B43 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,9 @@
 				605943411FD492230093CB97 /* ClassMate.xcdatamodeld */,
 				600587F81FD503F700615904 /* HomeViewController.swift */,
 				60FD9ABB1FDDE0B6000E0D00 /* AddGroupViewController.swift */,
+				FE92E6291FE1277500B29B43 /* Groups.swift */,
+				FE92E6281FE1277500B29B43 /* SearchFooter.swift */,
+				FE92E62A1FE1277500B29B43 /* SearchViewController.swift */,
 				60FD9AC91FDE171E000E0D00 /* NotesViewController.swift */,
 				60FD9ACB1FDE1753000E0D00 /* NoteViewCell.swift */,
 				60FD9ACD1FDE1A69000E0D00 /* AddNoteViewController.swift */,
@@ -511,13 +520,16 @@
 				605ED1951FDDBFE9004FA4C2 /* ViewController.swift in Sources */,
 				600587F91FD503F700615904 /* HomeViewController.swift in Sources */,
 				605943431FD492230093CB97 /* ClassMate.xcdatamodeld in Sources */,
+				FE92E62D1FE1277500B29B43 /* SearchViewController.swift in Sources */,
 				60B394441FE0AA980011CAC6 /* EditGroupViewController.swift in Sources */,
 				60FD9AC01FDE0443000E0D00 /* CollectionViewCell.swift in Sources */,
 				609A3CC01FDDC182001C7612 /* AMInputView.swift in Sources */,
 				60FD9ACA1FDE171E000E0D00 /* NotesViewController.swift in Sources */,
+				FE92E62C1FE1277500B29B43 /* Groups.swift in Sources */,
 				60FD9ABC1FDDE0B6000E0D00 /* AddGroupViewController.swift in Sources */,
 				604174061FDF4530005BBCBA /* ShowNoteViewController.swift in Sources */,
 				60FD9ACC1FDE1753000E0D00 /* NoteViewCell.swift in Sources */,
+				FE92E62B1FE1277500B29B43 /* SearchFooter.swift in Sources */,
 				60B394461FE0EF0F0011CAC6 /* ImageCollectionViewCell.swift in Sources */,
 				60FD9ACE1FDE1A69000E0D00 /* AddNoteViewController.swift in Sources */,
 				604174081FDF519D005BBCBA /* DisplayImageViewController.swift in Sources */,
