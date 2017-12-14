@@ -13,6 +13,25 @@ class DisplayImageViewController: UIViewController {
     @IBOutlet weak var Image: UIImageView!
     var Url = ""
     var queue = DispatchQueue(label: "responseQueue", qos: .utility)
+    
+    @IBAction func SaveImage(_ sender: UIButton) {
+        UIImageWriteToSavedPhotosAlbum(Image.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if Url != ""{

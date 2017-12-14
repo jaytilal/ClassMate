@@ -297,6 +297,11 @@
 					605943361FD492230093CB97 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					6059434D1FD492230093CB97 = {
 						CreatedOnToolsVersion = 9.1;

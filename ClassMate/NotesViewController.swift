@@ -30,15 +30,17 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
     var groupId : String = "" 
     
     @IBAction func LeaveGroup(_ sender: UIBarButtonItem) {
+        var indexOfUser = 0
         databaseRef.child("groups").child(groupId).child("members").observe(.value, with: { snapshot in
             if let members = snapshot.value as? [String] {
                 for i in 0..<members.count {
                     if members[i] == self.user {
-                        self.databaseRef.child("groups").child(self.groupId).child("members").child("\(i)").setValue("removed"+self.user)
+                        indexOfUser = i
                         self.showToast(message: "Left " + self.groupId)
-                      
+                        self.databaseRef.child("groups").child(self.groupId).child("members").child("\(indexOfUser)").setValue("left"+self.user)
                     }
                 }
+                
             }
             
         })
