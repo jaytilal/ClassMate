@@ -52,7 +52,6 @@ class SearchFooter: UIView {
 }
 
 extension SearchFooter {
-    //MARK: - Public API
     
     public func setNotFiltering() {
         label.text = ""

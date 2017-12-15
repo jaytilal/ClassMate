@@ -19,7 +19,9 @@ class AddGroupViewController: UIViewController {
     let databaseRef = Database.database().reference()
     var MembersList = [String]()
     
+    @IBOutlet weak var CreateButton: UIButton!
     
+    @IBOutlet weak var AddButton: UIButton!
     @IBAction func CreateGroup(_ sender: UIButton) {
         MembersList.append((Auth.auth().currentUser?.email)!)
         let reference = databaseRef.child("groups")
@@ -66,8 +68,9 @@ class AddGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.CreateButton.layer.cornerRadius = 7
         // Do any additional setup after loading the view.
+        self.AddButton.layer.cornerRadius = 7
     }
 
     @IBAction func Back(_ sender: UIBarButtonItem) {

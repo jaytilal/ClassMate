@@ -29,6 +29,10 @@ class AddNoteViewController: UIViewController {
     var groupId : String!
     @IBOutlet weak var noteContents: UITextView!
     var downloadURL = [String]()
+    
+    @IBOutlet weak var Submit: UIButton!
+    @IBOutlet weak var AddImage: UIButton!
+    
     @IBAction func Back(_ sender: UIBarButtonItem) {
         if let nav = self.navigationController {
             nav.popViewController(animated: true)
@@ -108,6 +112,8 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
         print("loaded")
         print(groupId!)
+        self.AddImage.layer.cornerRadius = 7
+        self.Submit.layer.cornerRadius = 7
         // Do any additional setup after loading the view.
     }
 

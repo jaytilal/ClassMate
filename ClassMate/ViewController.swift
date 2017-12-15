@@ -21,7 +21,7 @@ extension UIViewController {
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
@@ -256,12 +256,7 @@ class ViewController: UIViewController {
         
         // set constraints
         backImageBottomConstraint.constant = self.view.frame.size.height - topOfKetboard
-        
-        //        logoTopConstraint.constant = keyboardShow ? 50:50
-        //        logoHeightConstraint.constant = keyboardShow ? (hideLogo ? 0:40):60
-        //        logoBottomConstraint.constant = keyboardShow ? 20:32
-        //        logoButtomInSingupConstraint.constant = keyboardShow ? 20:32
-        
+
         forgotPassTopConstraint.constant = keyboardShow ? 30:45
         
         loginButtonTopConstraint.constant = keyboardShow ? 25:30

@@ -1,9 +1,6 @@
 import UIKit
 
 @IBDesignable class AMInputView: UIView,UITextFieldDelegate {
-    
-    
-    
     let animationDuration = 0.25
     
     @IBOutlet weak var contentView: UIView!

@@ -14,6 +14,7 @@ class DisplayImageViewController: UIViewController {
     var Url = ""
     var queue = DispatchQueue(label: "responseQueue", qos: .utility)
     
+    @IBOutlet weak var SaveButton: UIButton!
     @IBAction func SaveImage(_ sender: UIButton) {
         UIImageWriteToSavedPhotosAlbum(Image.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
@@ -26,7 +27,7 @@ class DisplayImageViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         } else {
-            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Saved!", message: "The image has been saved to your photos.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         }
@@ -37,9 +38,14 @@ class DisplayImageViewController: UIViewController {
         if Url != ""{
             //getImage(url: Url)
             Image.imageFromServerURL(urlString: Url)
+            
+            Image.layer.borderWidth = 5
+            Image.layer.cornerRadius = 7.0
+
             reloadInputViews()
             print("Done")
         }
+        self.SaveButton.layer.cornerRadius = 7
         // Do any additional setup after loading the view.
     }
 

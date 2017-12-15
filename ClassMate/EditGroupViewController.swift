@@ -20,6 +20,9 @@ class EditGroupViewController: UIViewController {
     var members = [String]()
     var newMembers = [String]()
     
+    @IBOutlet weak var AddMember: UIButton!
+    @IBOutlet weak var Save: UIButton!
+    
     @IBAction func addMember(_ sender: UIButton) {
         if Member.text! != ""{
             let memberId = Member.text!
@@ -54,6 +57,8 @@ class EditGroupViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.AddMember.layer.cornerRadius = 7
+        self.Save.layer.cornerRadius = 7
     }
 
     override func didReceiveMemoryWarning() {

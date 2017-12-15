@@ -17,6 +17,8 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
     @IBOutlet weak var Topic: UILabel!
     @IBOutlet weak var Description: UITextField!
     
+    @IBOutlet weak var SaveButton: UIButton!
+    @IBOutlet weak var AddButton: UIButton!
     var url = [String]()
     var DisplayNote = Note()
     let reuseidentifier = "thumbnail"
@@ -35,7 +37,8 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
         group = DisplayNote.group
         key = DisplayNote.key
         url = DisplayNote.downloadUrl
-        
+        self.AddButton.layer.cornerRadius = 7
+        self.SaveButton.layer.cornerRadius = 7
     }
     
     override func viewDidAppear(_ animated: Bool) {
