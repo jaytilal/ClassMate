@@ -10,6 +10,7 @@
 		2BB9A88C5AB6E3B81E871800 /* Pods_ClassMateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224600812E67F237D3E9149D /* Pods_ClassMateUITests.framework */; };
 		2EABA2B404311649D0A52DBB /* Pods_ClassMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD2A7AA371E9B10F0E97F8D /* Pods_ClassMate.framework */; };
 		600587F91FD503F700615904 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600587F81FD503F700615904 /* HomeViewController.swift */; };
+		60082B381FEA306D003A0108 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60082B371FEA306D003A0108 /* ResetPasswordViewController.swift */; };
 		604174061FDF4530005BBCBA /* ShowNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604174051FDF4530005BBCBA /* ShowNoteViewController.swift */; };
 		604174081FDF519D005BBCBA /* DisplayImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604174071FDF519D005BBCBA /* DisplayImageViewController.swift */; };
 		6059433B1FD492230093CB97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059433A1FD492230093CB97 /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		2CD63E2CDF71FFEDDB84CE68 /* Pods-ClassMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassMate/Pods-ClassMate.debug.xcconfig"; sourceTree = "<group>"; };
 		548949457D63AEF5D703473B /* Pods-ClassMateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassMateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassMateTests/Pods-ClassMateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		600587F81FD503F700615904 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		60082B371FEA306D003A0108 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		602DA9C1D616EF072C591FC4 /* Pods-ClassMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassMate/Pods-ClassMate.release.xcconfig"; sourceTree = "<group>"; };
 		604174051FDF4530005BBCBA /* ShowNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNoteViewController.swift; sourceTree = "<group>"; };
 		604174071FDF519D005BBCBA /* DisplayImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				60B394431FE0AA980011CAC6 /* EditGroupViewController.swift */,
 				60B394451FE0EF0F0011CAC6 /* ImageCollectionViewCell.swift */,
 				60B394491FE1B9D60011CAC6 /* SearchTableViewCell.swift */,
+				60082B371FEA306D003A0108 /* ResetPasswordViewController.swift */,
 			);
 			path = ClassMate;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				60FD9ABC1FDDE0B6000E0D00 /* AddGroupViewController.swift in Sources */,
 				604174061FDF4530005BBCBA /* ShowNoteViewController.swift in Sources */,
 				60FD9ACC1FDE1753000E0D00 /* NoteViewCell.swift in Sources */,
+				60082B381FEA306D003A0108 /* ResetPasswordViewController.swift in Sources */,
 				FE92E62B1FE1277500B29B43 /* SearchFooter.swift in Sources */,
 				60B394461FE0EF0F0011CAC6 /* ImageCollectionViewCell.swift in Sources */,
 				60FD9ACE1FDE1A69000E0D00 /* AddNoteViewController.swift in Sources */,
