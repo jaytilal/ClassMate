@@ -120,7 +120,7 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
             
             let uploadTask = imagesReference.putData(imageData, metadata: metadata, completion: { (metadata, error) in
                 if let metadata = metadata {
-                    self.showToast(message: "Image Uploaded!")
+                    self.showToast(message: "Image Uploaded! Click save to retain changes.")
                     completionBlock(metadata.downloadURL(), nil)
                 } else {
                     completionBlock(nil, error?.localizedDescription)
