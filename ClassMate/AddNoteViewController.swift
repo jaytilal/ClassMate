@@ -21,6 +21,8 @@ struct Constants {
 }
 
 class AddNoteViewController: UIViewController {
+   
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var noteTopic: UITextField!
     @IBOutlet weak var noteDescription: UITextField!
     let databaseRef = Database.database().reference()
@@ -69,10 +71,10 @@ class AddNoteViewController: UIViewController {
         if let imageData = UIImageJPEGRepresentation(image, 0.8) {
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
-            
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
             let uploadTask = imagesReference.putData(imageData, metadata: metadata, completion: { (metadata, error) in
                 if let metadata = metadata {
-                    self.showToast(message: "Image Uploaded!")
                     completionBlock(metadata.downloadURL(), nil)
                 } else {
                     completionBlock(nil, error?.localizedDescription)
@@ -85,6 +87,7 @@ class AddNoteViewController: UIViewController {
                 
                 let percentage = (Double(progress.completedUnitCount) / Double(progress.totalUnitCount)) * 100
                 progressBlock(percentage)
+                
             })
         } else {
             completionBlock(nil, "Image couldn't be converted to Data.")
@@ -111,6 +114,7 @@ class AddNoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded")
+        self.activityIndicator.isHidden = true
         print(groupId!)
         self.AddImage.layer.cornerRadius = 15
         self.Submit.layer.cornerRadius = 15
@@ -137,13 +141,17 @@ extension AddNoteViewController: UIImagePickerControllerDelegate, UINavigationCo
             print("Image Selected")
             self.uploadImage(image, progressBlock: { (percentage) in
                 print(percentage)
+                
             }, completionBlock: { [weak self] (fileURL, errorMessage) in
                 guard self != nil else {
                     return
                 }
+                self?.activityIndicator.stopAnimating()
+                self?.showToast(message: "Image Uploaded!")
                 self?.downloadURL.append(fileURL!.absoluteString)
                 print((fileURL?.absoluteString)!)
                 print(errorMessage ?? "No error")
+                
                 
             })
         }

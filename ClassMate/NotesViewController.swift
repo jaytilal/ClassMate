@@ -116,7 +116,7 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
                          note.key = each.key
                     }
                     note.group = self.groupId
-                   self.getMembers()
+                    self.getMembers()
                     self.NotesList.append(note)
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                     }
