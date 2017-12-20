@@ -57,8 +57,8 @@ class EditGroupViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.AddMember.layer.cornerRadius = 7
-        self.Save.layer.cornerRadius = 7
+        self.AddMember.layer.cornerRadius = 15
+        self.Save.layer.cornerRadius = 15
     }
 
     override func didReceiveMemoryWarning() {

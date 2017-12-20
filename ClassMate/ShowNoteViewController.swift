@@ -37,8 +37,8 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
         group = DisplayNote.group
         key = DisplayNote.key
         url = DisplayNote.downloadUrl
-        self.AddButton.layer.cornerRadius = 7
-        self.SaveButton.layer.cornerRadius = 7
+        self.AddButton.layer.cornerRadius = 15
+        self.SaveButton.layer.cornerRadius = 15
     }
     
     override func viewDidAppear(_ animated: Bool) {

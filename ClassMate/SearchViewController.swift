@@ -150,6 +150,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         cell.Subtitle!.text = grpCell.hashtags
         groupName = cell.Title.text!
         cell.Join.layer.setValue(groupName, forKey: "GroupName")
+        cell.Join.layer.cornerRadius = 15
         cell.Join.addTarget(self, action: "JoinGroup:", for: UIControlEvents.touchUpInside)
         return cell
     }

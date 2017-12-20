@@ -40,12 +40,12 @@ class DisplayImageViewController: UIViewController {
             Image.imageFromServerURL(urlString: Url)
             
             Image.layer.borderWidth = 5
-            Image.layer.cornerRadius = 7.0
+            Image.layer.cornerRadius = 9.0
 
             reloadInputViews()
             print("Done")
         }
-        self.SaveButton.layer.cornerRadius = 7
+        self.SaveButton.layer.cornerRadius = 15
         // Do any additional setup after loading the view.
     }
 
