@@ -38,6 +38,7 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
             if i == self.user{
                 self.groupMembers.remove(at: j-1)
                 print("removed")
+                self.showToast(message: "You left the group!")
             }
         }
        databaseRef.child("groups").child(groupId).child("members").setValue(self.groupMembers)
