@@ -68,9 +68,9 @@ class AddGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.CreateButton.layer.cornerRadius = 7
+        self.CreateButton.layer.cornerRadius = 15
         // Do any additional setup after loading the view.
-        self.AddButton.layer.cornerRadius = 7
+        self.AddButton.layer.cornerRadius = 15
     }
 
     @IBAction func Back(_ sender: UIBarButtonItem) {

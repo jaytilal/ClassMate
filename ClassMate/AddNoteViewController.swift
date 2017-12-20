@@ -112,8 +112,8 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
         print("loaded")
         print(groupId!)
-        self.AddImage.layer.cornerRadius = 7
-        self.Submit.layer.cornerRadius = 7
+        self.AddImage.layer.cornerRadius = 15
+        self.Submit.layer.cornerRadius = 15
         // Do any additional setup after loading the view.
     }
 
