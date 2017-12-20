@@ -147,7 +147,7 @@ extension AddNoteViewController: UIImagePickerControllerDelegate, UINavigationCo
                     return
                 }
                 self?.activityIndicator.stopAnimating()
-                self?.showToast(message: "Image Uploaded!")
+                self?.showToast(message: "Image Uploaded! Click save to retain changes.")
                 self?.downloadURL.append(fileURL!.absoluteString)
                 print((fileURL?.absoluteString)!)
                 print(errorMessage ?? "No error")

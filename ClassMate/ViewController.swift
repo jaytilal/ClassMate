@@ -20,8 +20,10 @@ extension UIViewController {
         toastLabel.alpha = 1.0
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
+        toastLabel.lineBreakMode = .byWordWrapping;
+        toastLabel.numberOfLines = 0
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 3.0, delay: 0.0, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
