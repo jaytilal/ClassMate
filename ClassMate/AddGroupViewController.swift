@@ -40,28 +40,41 @@ class AddGroupViewController: UIViewController {
     @IBAction func SearchMembers(_ sender: UIButton) {
         if Members.text! != ""{
             let memberId = Members.text!
-            databaseRef.child("users").queryOrdered(byChild: "emailId").queryEqual(toValue: memberId).observeSingleEvent(of: .value, with: { (snapShot) in
+            databaseRef.child("users").queryOrdered(byChild: "emailId").observeSingleEvent(of: .value, with: { (snapShot) in
                 
                 if let snapDict = snapShot.value as? [String:AnyObject]{
-                    
+                    var count = 0
                     for each in snapDict{
                         let key  = each.key
                         let email = each.value["emailId"] as! String
-                        print(key)
-                        print(email)
-                        self.MembersList.append(email)
-                        self.Members.text! = ""
-                        self.showToast(message: "Member Added!")
-                        
+                        if self.Members.text! == email{
+                            if self.MembersList.contains(email){
+                                self.showToast(message: "Member already exists")
+                                self.Members.text! = ""
+                                return
+                            }
+                            else{
+                                self.MembersList.append(email)
+                                self.Members.text! = ""
+                                self.showToast(message: "Member Added!")
+                            }
+                        }
+                        else{
+                            count = count + 1
+                        }
+                    }
+                    
+                    if count == snapDict.count{
+                        self.showToast(message: "User not found")
                     }
                 }
             }, withCancel: {(Err) in
-                self.showToast(message: "User does not exist!")
                 print(Err.localizedDescription)
                 
             })
         }
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
