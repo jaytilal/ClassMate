@@ -65,6 +65,7 @@ class EditGroupViewController: UIViewController {
     @IBAction func SaveChanges(_ sender: UIButton) {
         let ref = self.databaseRef.child("groups").child(groupId)
         ref.child("members").setValue(members)
+        print(members)
         ref.child("hashtags").setValue(GroupDescription.text!)
         ref.child("name").setValue(GroupName.text!)
         self.showToast(message: "Saved Changes!")
