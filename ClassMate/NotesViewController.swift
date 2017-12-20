@@ -26,27 +26,33 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
     var NotesList = [Note]()
      let reuseIdentifier = "NoteCell"
     var showNote = Note()
+    var groupMembers = [String]()
     @IBOutlet weak var collectionView: UICollectionView!
     var groupId : String = "" 
     
     @IBAction func LeaveGroup(_ sender: UIBarButtonItem) {
         var indexOfUser = 0
-        databaseRef.child("groups").child(groupId).child("members").observe(.value, with: { snapshot in
-            if let members = snapshot.value as? [String] {
-                for i in 0..<members.count {
-                    if members[i] == self.user {
-                        indexOfUser = i
-                        self.showToast(message: "Left " + self.groupId)
-                        self.databaseRef.child("groups").child(self.groupId).child("members").child("\(indexOfUser)").setValue("left"+self.user)
-                    }
-                }
-                
+        var j = 0
+        for i in self.groupMembers {
+            j = j+1
+            if i == self.user{
+                self.groupMembers.remove(at: j-1)
+                print("removed")
             }
-            
-        })
-        
+        }
+       databaseRef.child("groups").child(groupId).child("members").setValue(self.groupMembers)
+     print(self.groupMembers)
     }
     
+    func getMembers(){
+        databaseRef.child("groups").child(groupId).child("members").observe(.value, with: { snapshot in
+            if let members = snapshot.value as? [String] {
+                self.groupMembers = members
+                print(self.groupMembers)
+            }
+        })
+    }
+        
     @IBAction func addNewNote(_ sender: UIButton) {
         performSegue(withIdentifier: "toAddNote", sender: sender)
     }
@@ -109,7 +115,7 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
                          note.key = each.key
                     }
                     note.group = self.groupId
-                   
+                   self.getMembers()
                     self.NotesList.append(note)
                     self.collectionView.reloadSections(IndexSet(integer : 0))
                     }
