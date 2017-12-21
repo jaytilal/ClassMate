@@ -38,6 +38,8 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
         Description.text = DisplayNote.noteDesc
         group = DisplayNote.group
         key = DisplayNote.key
+        print("key is ",key)
+        print("group is",group)
         url = DisplayNote.downloadUrl
         self.AddButton.layer.cornerRadius = 15
         self.SaveButton.layer.cornerRadius = 15

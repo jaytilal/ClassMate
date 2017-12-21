@@ -111,9 +111,11 @@ class NotesViewController: UIViewController,UICollectionViewDelegate,UICollectio
                     note.noteLabel = each.value["topic"] as! String
                     note.noteDesc = each.value["description"] as! String
                     note.noteContent = each.value["content"] as! String
+                    note.key = each.key
+                    print(note.key, "Key_______________")
+                    
                     if let val = each.value["downloadURL"] as! [String]!{
                         note.downloadUrl = each.value["downloadURL"] as! [String]!
-                         note.key = each.key
                     }
                     note.group = self.groupId
                     self.getMembers()
