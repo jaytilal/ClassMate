@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ofj-J5-KuS" userLabel="Input View - email" customClass="AMInputView" customModule="ClassMate" customModuleProvider="target">
-                                <rect key="frame" x="82" y="163" width="210" height="52"/>
+                                <rect key="frame" x="82" y="250" width="210" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -44,7 +44,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reset Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmv-xu-lZd">
-                                <rect key="frame" x="126" y="40" width="123" height="59"/>
+                                <rect key="frame" x="126" y="153" width="123" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,6 +62,24 @@
                                     <action selector="loginButtonTouchUpInside:" destination="jVV-NB-QcJ" eventType="touchUpInside" id="epQ-hc-lfl"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Zt-ly-bng">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjc-eM-YF3">
+                                        <rect key="frame" x="8" y="22" width="76" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="0.68908458949999996" green="0.34506475930000002" blue="0.60786491629999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="jVV-NB-QcJ" kind="show" id="D8u-Hg-3BT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92850297689437866" green="0.88276559114456177" blue="0.86274212598800659" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.70528107880000002" green="0.5611805916" blue="0.497033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="cIQ-2l-5WG"/>
@@ -72,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOR-Z1-WB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3359.1999999999998" y="83.208395802098963"/>
+            <point key="canvasLocation" x="-3367.1999999999998" y="262.21889055472263"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KVY-Yp-9oq">
@@ -1081,7 +1099,8 @@
         <image name="search" width="571" height="571"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sqo-n1-Qam"/>
-        <segue reference="drj-M6-3bT"/>
+        <segue reference="GjU-MD-1nz"/>
+        <segue reference="agX-tq-hXw"/>
+        <segue reference="D8u-Hg-3BT"/>
     </inferredMetricsTieBreakers>
 </document>
