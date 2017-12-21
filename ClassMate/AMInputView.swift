@@ -1,5 +1,12 @@
-import UIKit
+//
+//  AMInputView.swift
+//  AMLoginSingup
+//
+//  Created by amir on 10/11/16.
+//  Copyright © 2016 amirs.eu. All rights reserved.
+//
 
+import UIKit
 @IBDesignable class AMInputView: UIView,UITextFieldDelegate {
     let animationDuration = 0.25
     
