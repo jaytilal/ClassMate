@@ -749,6 +749,11 @@
                                     <outlet property="delegate" destination="l8h-CG-Zi6" id="d0H-SB-qyp"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Epe-2r-aGv">
+                                <rect key="frame" x="169" y="202" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.70528107880000002" green="0.5611805916" blue="0.497033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="q5G-my-HBD"/>
@@ -759,6 +764,7 @@
                         <outlet property="Description" destination="0Dw-BM-a0w" id="bjM-Jj-tC1"/>
                         <outlet property="SaveButton" destination="kFF-Wu-dc8" id="VGj-LP-dCS"/>
                         <outlet property="Topic" destination="euu-nL-bTK" id="zc5-xz-0uQ"/>
+                        <outlet property="activityIndicator" destination="Epe-2r-aGv" id="jXo-RI-Ybh"/>
                         <outlet property="thumbnails" destination="6uw-o6-EW7" id="Zkj-Oo-zvI"/>
                         <segue destination="7FY-bB-MNK" kind="show" identifier="toShowImage" id="uAN-8w-LYr"/>
                     </connections>

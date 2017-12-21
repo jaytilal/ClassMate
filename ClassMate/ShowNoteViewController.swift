@@ -16,6 +16,7 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
     @IBOutlet weak var thumbnails: UICollectionView!
     @IBOutlet weak var Topic: UILabel!
     @IBOutlet weak var Description: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var SaveButton: UIButton!
     @IBOutlet weak var AddButton: UIButton!
@@ -32,6 +33,7 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         Topic.text = DisplayNote.noteLabel
+        self.activityIndicator.isHidden = true
         Content.text = DisplayNote.noteContent
         Description.text = DisplayNote.noteDesc
         group = DisplayNote.group
@@ -117,6 +119,8 @@ class ShowNoteViewController: UIViewController,UICollectionViewDelegate,UICollec
         if let imageData = UIImageJPEGRepresentation(image, 0.8) {
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
             
             let uploadTask = imagesReference.putData(imageData, metadata: metadata, completion: { (metadata, error) in
                 if let metadata = metadata {
@@ -162,6 +166,9 @@ extension ShowNoteViewController: UIImagePickerControllerDelegate, UINavigationC
                 guard self != nil else {
                     return
                 }
+                self?.activityIndicator.stopAnimating()
+                self?.showToast(message: "Image Uploaded! Click save to retain changes.")
+                
                 self?.url.append(fileURL!.absoluteString)
                 print((fileURL?.absoluteString)!)
                 print(errorMessage ?? "No error")
