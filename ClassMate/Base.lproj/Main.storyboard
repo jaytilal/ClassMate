@@ -447,12 +447,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02Z-43-RxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="-1137"/>
+            <point key="canvasLocation" x="428" y="-1039.4302848575712"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="ehA-b3-hAO">
             <objects>
-                <viewController storyboardIdentifier="Home" id="Dxh-7i-Qmm" customClass="HomeViewController" customModule="ClassMate" sceneMemberID="viewController">
+                <viewController id="Dxh-7i-Qmm" customClass="HomeViewController" customModule="ClassMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IIk-MW-R8R" customClass="Home">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -556,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7d-c4-jG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-362" y="-380"/>
+            <point key="canvasLocation" x="-34.399999999999999" y="-380.05997001499253"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="z2E-30-dew">
@@ -1105,8 +1105,8 @@
         <image name="search" width="571" height="571"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sqo-n1-Qam"/>
-        <segue reference="drj-M6-3bT"/>
-        <segue reference="fUl-tD-7na"/>
+        <segue reference="GjU-MD-1nz"/>
+        <segue reference="agX-tq-hXw"/>
+        <segue reference="D8u-Hg-3BT"/>
     </inferredMetricsTieBreakers>
 </document>

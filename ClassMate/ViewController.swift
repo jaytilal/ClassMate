@@ -7,12 +7,9 @@
 //
 
 import UIKit
-import FacebookLogin
-import FBSDKLoginKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
-
 
 enum AMLoginSignupViewMode {
     case login
@@ -43,30 +40,12 @@ extension UIViewController {
 }
 
 
-class ViewController: UIViewController, LoginButtonDelegate {
-    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        print("logged in")
-        self.getFBUserData()
-        
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//
-//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
-//        self.present(nextViewController, animated:true, completion:nil)
-//
-            self.performSegue(withIdentifier: "this", sender: self)
-        
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        print("logged out")
-    }
+class ViewController: UIViewController {
     
     
     let animationDuration = 0.25
     var mode:AMLoginSignupViewMode = .signup
     
-    var dict : [String : AnyObject]!
-
     
     //MARK: - background image constraints
     @IBOutlet weak var backImageLeftConstraint: NSLayoutConstraint!
@@ -117,18 +96,6 @@ class ViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-        
-        var X_Position:CGFloat? = 70.0 //use your X position here
-        var Y_Position:CGFloat? = 590.0 //use your Y position here
-        
-        loginButton.frame = CGRect(x:X_Position!, y:Y_Position!, width:loginButton.frame.width, height:loginButton.frame.height)
-        
-//        loginButton.center = view.center
-        loginButton.delegate = self
-        
-        view.addSubview(loginButton)
-        
         // set view to login mode
         toggleViewMode(animated: false)
         
@@ -138,37 +105,6 @@ class ViewController: UIViewController, LoginButtonDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    
-    
-    //when login button clicked
-    @objc func loginButtonClicked() {
-        let loginManager = LoginManager()
-        
-        loginManager.logIn(readPermissions: [.publicProfile], viewController : self) { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                print("Logged in")
-            }
-        }
-    }
-    
-    //function is fetching the user data
-    func getFBUserData(){
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-                if (error == nil){
-                    self.dict = result as! [String : AnyObject]
-                    print(result!)
-                    print(self.dict)
-                }
-            })
-        }
     }
     
     
@@ -245,6 +181,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
         }
         
     }
+    
     
     
     //MARK: - toggle view

@@ -45,30 +45,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb484186175329577</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>484186175329577</string>
-    <key>FacebookDisplayName</key>
-    <string>Simplified iOS</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>We want to get your profile picture for this app</string>
-
-
 </dict>
 </plist>

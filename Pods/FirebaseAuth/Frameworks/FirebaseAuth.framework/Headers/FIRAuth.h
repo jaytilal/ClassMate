@@ -33,7 +33,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /** @typedef FIRAuthStateDidChangeListenerHandle
-    @brief The type of handle returned by `FIRAuth.addAuthStateDidChangeListener:`.
+    @brief The type of handle returned by @c FIRAuth.addAuthStateDidChangeListener:.
  */
 typedef id<NSObject> FIRAuthStateDidChangeListenerHandle
     NS_SWIFT_NAME(AuthStateDidChangeListenerHandle);
@@ -48,7 +48,7 @@ typedef void(^FIRAuthStateDidChangeListenerBlock)(FIRAuth *auth, FIRUser *_Nulla
     NS_SWIFT_NAME(AuthStateDidChangeListenerBlock);
 
 /** @typedef FIRIDTokenDidChangeListenerHandle
-    @brief The type of handle returned by `FIRAuth.addIDTokenDidChangeListener:`.
+    @brief The type of handle returned by @c FIRAuth.addIDTokenDidChangeListener:.
  */
 typedef id<NSObject> FIRIDTokenDidChangeListenerHandle
     NS_SWIFT_NAME(IDTokenDidChangeListenerHandle);
@@ -75,17 +75,17 @@ typedef void (^FIRAuthDataResultCallback)(FIRAuthDataResult *_Nullable authResul
 
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 /**
-    @brief The name of the `NSNotificationCenter` notification which is posted when the auth state
+    @brief The name of the @c NSNotificationCenter notification which is posted when the auth state
         changes (for example, a new token has been produced, a user signs in or signs out). The
-        object parameter of the notification is the sender `FIRAuth` instance.
+        object parameter of the notification is the sender @c FIRAuth instance.
  */
 extern const NSNotificationName FIRAuthStateDidChangeNotification
     NS_SWIFT_NAME(AuthStateDidChange);
 #else
 /**
-    @brief The name of the `NSNotificationCenter` notification which is posted when the auth state
+    @brief The name of the @c NSNotificationCenter notification which is posted when the auth state
         changes (for example, a new token has been produced, a user signs in or signs out). The
-        object parameter of the notification is the sender `FIRAuth` instance.
+        object parameter of the notification is the sender @c FIRAuth instance.
  */
 extern NSString *const FIRAuthStateDidChangeNotification
     NS_SWIFT_NAME(AuthStateDidChangeNotification);
@@ -114,14 +114,6 @@ typedef void (^FIRProviderQueryCallback)(NSArray<NSString *> *_Nullable provider
                                          NSError *_Nullable error)
     NS_SWIFT_NAME(ProviderQueryCallback);
 
-/** @typedef FIRSignInMethodQueryCallback
-    @brief The type of block invoked when a list of sign-in methods for a given email address is
-        requested.
- */
-typedef void (^FIRSignInMethodQueryCallback)(NSArray<NSString *> *_Nullable,
-                                             NSError *_Nullable)
-    NS_SWIFT_NAME(SignInMethodQueryCallback);
-
 /** @typedef FIRSendPasswordResetCallback
     @brief The type of block invoked when sending a password reset email.
 
@@ -130,12 +122,6 @@ typedef void (^FIRSignInMethodQueryCallback)(NSArray<NSString *> *_Nullable,
  */
 typedef void (^FIRSendPasswordResetCallback)(NSError *_Nullable error)
     NS_SWIFT_NAME(SendPasswordResetCallback);
-
-/** @typedef FIRSendSignInLinkToEmailCallback
-    @brief The type of block invoked when sending an email sign-in link email.
- */
-typedef void (^FIRSendSignInLinkToEmailCallback)(NSError *_Nullable error)
-    NS_SWIFT_NAME(SendSignInLinkToEmailCallback);
 
 /** @typedef FIRConfirmPasswordResetCallback
     @brief The type of block invoked when performing a password reset.
@@ -168,8 +154,8 @@ typedef void (^FIRApplyActionCodeCallback)(NSError *_Nullable error)
     NS_SWIFT_NAME(ApplyActionCodeCallback);
 
 /**
-    @brief Keys used to retrieve operation data from a `FIRActionCodeInfo` object by the
-        `dataForKey` method.
+    @brief Keys used to retrieve operation data from a @c FIRActionCodeInfo object by the
+        @c dataForKey method.
   */
 typedef NS_ENUM(NSInteger, FIRActionDataKey) {
   /**
@@ -203,10 +189,6 @@ typedef NS_ENUM(NSInteger, FIRActionCodeOperation) {
 
     /** Action code for recover email operation. */
     FIRActionCodeOperationRecoverEmail = 3,
-
-    /** Action code for email link operation. */
-    FIRActionCodeOperationEmailLink = 4,
-
 
 } NS_SWIFT_NAME(ActionCodeOperation);
 
@@ -257,7 +239,7 @@ NS_SWIFT_NAME(Auth)
 + (FIRAuth *)auth NS_SWIFT_NAME(auth());
 
 /** @fn authWithApp:
-    @brief Gets the auth object for a `FIRApp`.
+    @brief Gets the auth object for a @c FIRApp.
 
     @param app The FIRApp for which to retrieve the associated FIRAuth instance.
     @return The FIRAuth instance associated with the given FIRApp.
@@ -265,7 +247,7 @@ NS_SWIFT_NAME(Auth)
 + (FIRAuth *)authWithApp:(FIRApp *)app NS_SWIFT_NAME(auth(app:));
 
 /** @property app
-    @brief Gets the `FIRApp` object that this auth object is connected to.
+    @brief Gets the @c FIRApp object that this auth object is connected to.
  */
 @property(nonatomic, weak, readonly, nullable) FIRApp *app;
 
@@ -274,9 +256,9 @@ NS_SWIFT_NAME(Auth)
  */
 @property(nonatomic, strong, readonly, nullable) FIRUser *currentUser;
 
-/** @property languageCode
+/** @proprty languageCode
     @brief The current user language code. This property can be set to the app's current language by
-        calling `useAppLanguage`.
+        calling @c useAppLanguage.
 
     @remarks The string used to set this property must be a language code that follows BCP 47.
  */
@@ -287,13 +269,13 @@ NS_SWIFT_NAME(Auth)
     @brief The APNs token used for phone number authentication. The type of the token (production
         or sandbox) will be attempted to be automatcially detected.
     @remarks If swizzling is disabled, the APNs Token must be set for phone number auth to work,
-        by either setting this property or by calling `setAPNSToken:type:`
+        by either setting this property or by calling @c setAPNSToken:type:
  */
 @property(nonatomic, strong, nullable) NSData *APNSToken;
 #endif
 
 /** @fn init
-    @brief Please access auth instances using `FIRAuth.auth` and `FIRAuth.authForApp:`.
+    @brief Please access auth instances using @c FIRAuth.auth and @c FIRAuth.authForApp:.
  */
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -307,31 +289,14 @@ NS_SWIFT_NAME(Auth)
         main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
- */
-- (void)fetchProvidersForEmail:(NSString *)email
-                    completion:(nullable FIRProviderQueryCallback)completion;
-
-/** @fn fetchSignInMethodsForEmail:completion:
-    @brief Fetches the list of all sign-in methods previously used for the provided email address.
-
-    @param email The email address for which to obtain a list of sign-in methods.
-    @param completion Optionally; a block which is invoked when the list of sign in methods for the
-        specified email address is ready or an error was encountered. Invoked asynchronously on the
-        main thread in the future.
-
-    @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.</li>
+    </ul>
 
     @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
-
-- (void)fetchSignInMethodsForEmail:(NSString *)email
-                        completion:(nullable FIRSignInMethodQueryCallback)completion;
+- (void)fetchProvidersForEmail:(NSString *)email
+                    completion:(nullable FIRProviderQueryCallback)completion;
 
 /** @fn signInWithEmail:password:completion:
     @brief Signs in using an email address and password.
@@ -343,44 +308,25 @@ NS_SWIFT_NAME(Auth)
 
     @remarks Possible error codes:
 
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that email and password
+    <ul>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that email and password
             accounts are not enabled. Enable them in the Auth section of the
             Firebase console.
-        + `FIRAuthErrorCodeUserDisabled` - Indicates the user's account is disabled.
-        + `FIRAuthErrorCodeWrongPassword` - Indicates the user attempted
+        </li>
+        <li>@c FIRAuthErrorCodeUserDisabled - Indicates the user's account is disabled.
+        </li>
+        <li>@c FIRAuthErrorCodeWrongPassword - Indicates the user attempted
             sign in with an incorrect password.
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
+        </li>
+    </ul>
 
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)signInWithEmail:(NSString *)email
                password:(NSString *)password
              completion:(nullable FIRAuthResultCallback)completion;
-
-/** @fn signInWithEmail:link:completion:
-    @brief Signs in using an email address and email sign-in link.
-
-    @param email The user's email address.
-    @param link The email sign-in link.
-    @param completion Optionally; a block which is invoked when the sign in flow finishes, or is
-        canceled. Invoked asynchronously on the main thread in the future.
-
-    @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that email and email sign-in link
-            accounts are not enabled. Enable them in the Auth section of the
-            Firebase console.
-        + `FIRAuthErrorCodeUserDisabled` - Indicates the user's account is disabled.
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is invalid.
-
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
- */
-
-- (void)signInWithEmail:(NSString *)email
-                   link:(NSString *)link
-             completion:(nullable FIRAuthDataResultCallback)completion;
 
 /** @fn signInAndRetrieveDataWithEmail:password:completion:
     @brief Signs in using an email address and password.
@@ -392,28 +338,31 @@ NS_SWIFT_NAME(Auth)
 
     @remarks Possible error codes:
 
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that email and password
+    <ul>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that email and password
             accounts are not enabled. Enable them in the Auth section of the
             Firebase console.
-        + `FIRAuthErrorCodeUserDisabled` - Indicates the user's account is disabled.
-        + `FIRAuthErrorCodeWrongPassword` - Indicates the user attempted
+        </li>
+        <li>@c FIRAuthErrorCodeUserDisabled - Indicates the user's account is disabled.
+        </li>
+        <li>@c FIRAuthErrorCodeWrongPassword - Indicates the user attempted
             sign in with an incorrect password.
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
+        </li>
+    </ul>
 
-
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
-
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
     @remarks This method will only exist until the next major Firebase release following 4.x.x.
-        After the next major release the method `signInWithEmail:password:completion:` will support
-        the `FIRAuthDataResultCallback`.
+        After the next major release the method @c signInWithEmail:password:completion: will support
+        the @c FIRAuthDataResultCallback.
  */
 - (void)signInAndRetrieveDataWithEmail:(NSString *)email
                               password:(NSString *)password
                             completion:(nullable FIRAuthDataResultCallback)completion;
 
 /** @fn signInWithCredential:completion:
-    @brief Convenience method for `signInAndRetrieveDataWithCredential:completion:` This method
+    @brief Convenience method for @c signInAndRetrieveDataWithCredential:completion: This method
         doesn't return additional identity provider data.
  */
 - (void)signInWithCredential:(FIRAuthCredential *)credential
@@ -429,35 +378,45 @@ NS_SWIFT_NAME(Auth)
         canceled. Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidCredential` - Indicates the supplied credential is invalid.
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidCredential - Indicates the supplied credential is invalid.
             This could happen if it has expired or it is malformed.
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that accounts
+        </li>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that accounts
             with the identity provider represented by the credential are not enabled.
             Enable them in the Auth section of the Firebase console.
-        + `FIRAuthErrorCodeAccountExistsWithDifferentCredential` - Indicates the email asserted
+        </li>
+        <li>@c FIRAuthErrorCodeAccountExistsWithDifferentCredential - Indicates the email asserted
             by the credential (e.g. the email in a Facebook access token) is already in use by an
             existing account, that cannot be authenticated with this sign-in method. Call
             fetchProvidersForEmail for this user’s email and then prompt them to sign in with any of
             the sign-in providers returned. This error will only be thrown if the "One account per
             email address" setting is enabled in the Firebase console, under Auth settings.
-        + `FIRAuthErrorCodeUserDisabled` - Indicates the user's account is disabled.
-        + `FIRAuthErrorCodeWrongPassword` - Indicates the user attempted sign in with an
+        </li>
+        <li>@c FIRAuthErrorCodeUserDisabled - Indicates the user's account is disabled.
+        </li>
+        <li>@c FIRAuthErrorCodeWrongPassword - Indicates the user attempted sign in with an
             incorrect password, if credential is of the type EmailPasswordAuthCredential.
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
-        + `FIRAuthErrorCodeMissingVerificationID` - Indicates that the phone auth credential was
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
+        </li>
+        <li>@c FIRAuthErrorCodeMissingVerificationID - Indicates that the phone auth credential was
             created with an empty verification ID.
-        + `FIRAuthErrorCodeMissingVerificationCode` - Indicates that the phone auth credential
+        </li>
+        <li>@c FIRAuthErrorCodeMissingVerificationCode - Indicates that the phone auth credential
             was created with an empty verification code.
-        + `FIRAuthErrorCodeInvalidVerificationCode` - Indicates that the phone auth credential
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidVerificationCode - Indicates that the phone auth credential
             was created with an invalid verification Code.
-        + `FIRAuthErrorCodeInvalidVerificationID` - Indicates that the phone auth credential was
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidVerificationID - Indicates that the phone auth credential was
             created with an invalid verification ID.
-        + `FIRAuthErrorCodeSessionExpired` - Indicates that the SMS code has expired.
+        </li>
+        <li>@c FIRAuthErrorCodeSessionExpired - Indicates that the SMS code has expired.
+        </li>
+    </ul>
 
-
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)signInAndRetrieveDataWithCredential:(FIRAuthCredential *)credential
                                  completion:(nullable FIRAuthDataResultCallback)completion;
@@ -471,11 +430,13 @@ NS_SWIFT_NAME(Auth)
         If there is any other existing user signed in, that user will be signed out.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that anonymous accounts are
+    <ul>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that anonymous accounts are
             not enabled. Enable them in the Auth section of the Firebase console.
+        </li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)signInAnonymouslyWithCompletion:(nullable FIRAuthResultCallback)completion;
 
@@ -488,16 +449,16 @@ NS_SWIFT_NAME(Auth)
         If there is any other existing user signed in, that user will be signed out.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that anonymous accounts are
+    <ul>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that anonymous accounts are
             not enabled. Enable them in the Auth section of the Firebase console.
+        </li>
+    </ul>
 
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
-
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
     @remarks This method will only exist until the next major Firebase release following 4.x.x.
-        After the next major release the method `signInAnonymouslyWithCompletion` will support the
-        `FIRAuthDataResultCallback`.
+        After the next major release the method @c signInAnonymouslyWithCompletion will support the
+        @c FIRAuthDataResultCallback.
  */
 - (void)signInAnonymouslyAndRetrieveDataWithCompletion:
     (nullable FIRAuthDataResultCallback)completion;
@@ -510,15 +471,16 @@ NS_SWIFT_NAME(Auth)
         canceled. Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidCustomToken` - Indicates a validation error with
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidCustomToken - Indicates a validation error with
             the custom token.
-        + `FIRAuthErrorCodeCustomTokenMismatch` - Indicates the service account and the API key
+        </li>
+        <li>@c FIRAuthErrorCodeCustomTokenMismatch - Indicates the service account and the API key
             belong to different projects.
+        </li>
+    </ul>
 
-
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)signInWithCustomToken:(NSString *)token
                    completion:(nullable FIRAuthResultCallback)completion;
@@ -531,20 +493,19 @@ NS_SWIFT_NAME(Auth)
         canceled. Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidCustomToken` - Indicates a validation error with
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidCustomToken - Indicates a validation error with
             the custom token.
-
-        + `FIRAuthErrorCodeCustomTokenMismatch` - Indicates the service account and the API key
+        </li>
+        <li>@c FIRAuthErrorCodeCustomTokenMismatch - Indicates the service account and the API key
             belong to different projects.
+        </li>
+    </ul>
 
-
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
-
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
     @remarks This method will only exist until the next major Firebase release following 4.x.x.
-        After the next major release the method `createUserWithEmail:password:completion:` will
-        support the `FIRAuthDataResultCallback`.
+        After the next major release the method @c createUserWithEmail:password:completion: will
+        support the @c FIRAuthDataResultCallback.
  */
 - (void)signInAndRetrieveDataWithCustomToken:(NSString *)token
                                   completion:(nullable FIRAuthDataResultCallback)completion;
@@ -559,18 +520,23 @@ NS_SWIFT_NAME(Auth)
         canceled. Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
-        + `FIRAuthErrorCodeEmailAlreadyInUse` - Indicates the email used to attempt sign up
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
+        </li>
+        <li>@c FIRAuthErrorCodeEmailAlreadyInUse - Indicates the email used to attempt sign up
             already exists. Call fetchProvidersForEmail to check which sign-in mechanisms the user
             used, and prompt the user to sign in with one of those.
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that email and password accounts
+        </li>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that email and password accounts
             are not enabled. Enable them in the Auth section of the Firebase console.
-        + `FIRAuthErrorCodeWeakPassword` - Indicates an attempt to set a password that is
+        </li>
+        <li>@c FIRAuthErrorCodeWeakPassword - Indicates an attempt to set a password that is
             considered too weak. The NSLocalizedFailureReasonErrorKey field in the NSError.userInfo
             dictionary object will contain more detailed explanation that can be shown to the user.
+        </li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)createUserWithEmail:(NSString *)email
                    password:(NSString *)password
@@ -585,22 +551,26 @@ NS_SWIFT_NAME(Auth)
         canceled. Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
-        + `FIRAuthErrorCodeEmailAlreadyInUse` - Indicates the email used to attempt sign up
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
+        </li>
+        <li>@c FIRAuthErrorCodeEmailAlreadyInUse - Indicates the email used to attempt sign up
             already exists. Call fetchProvidersForEmail to check which sign-in mechanisms the user
             used, and prompt the user to sign in with one of those.
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that email and password accounts
+        </li>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that email and password accounts
             are not enabled. Enable them in the Auth section of the Firebase console.
-        + `FIRAuthErrorCodeWeakPassword` - Indicates an attempt to set a password that is
+        </li>
+        <li>@c FIRAuthErrorCodeWeakPassword - Indicates an attempt to set a password that is
             considered too weak. The NSLocalizedFailureReasonErrorKey field in the NSError.userInfo
             dictionary object will contain more detailed explanation that can be shown to the user.
+        </li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
-
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
     @remarks This method will only exist until the next major Firebase release following 4.x.x.
-        After the next major release the method `createUserWithEmail:password:completion:` will
-        support the `FIRAuthDataResultCallback`.
+        After the next major release the method @c createUserWithEmail:password:completion: will
+        support the @c FIRAuthDataResultCallback.
  */
 - (void)createUserAndRetrieveDataWithEmail:(NSString *)email
                                   password:(NSString *)password
@@ -615,15 +585,20 @@ NS_SWIFT_NAME(Auth)
         asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeWeakPassword` - Indicates an attempt to set a password that is
+    <ul>
+        <li>@c FIRAuthErrorCodeWeakPassword - Indicates an attempt to set a password that is
             considered too weak.
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates the administrator disabled sign
+        </li>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates the administrator disabled sign
             in with the specified identity provider.
-        + `FIRAuthErrorCodeExpiredActionCode` - Indicates the OOB code is expired.
-        + `FIRAuthErrorCodeInvalidActionCode` - Indicates the OOB code is invalid.
+        </li>
+        <li>@c FIRAuthErrorCodeExpiredActionCode - Indicates the OOB code is expired.
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidActionCode - Indicates the OOB code is invalid.
+        </li>
+   </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)confirmPasswordResetWithCode:(NSString *)code
                          newPassword:(NSString *)newPassword
@@ -669,15 +644,17 @@ NS_SWIFT_NAME(Auth)
         asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidRecipientEmail` - Indicates an invalid recipient email was
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidRecipientEmail - Indicates an invalid recipient email was
             sent in the request.
-        + `FIRAuthErrorCodeInvalidSender` - Indicates an invalid sender email is set in
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidSender - Indicates an invalid sender email is set in
             the console for this action.
-        + `FIRAuthErrorCodeInvalidMessagePayload` - Indicates an invalid email template for
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidMessagePayload - Indicates an invalid email template for
             sending update email.
-
-
+        </li>
+    </ul>
  */
 - (void)sendPasswordResetWithEmail:(NSString *)email
                         completion:(nullable FIRSendPasswordResetCallback)completion;
@@ -686,46 +663,39 @@ NS_SWIFT_NAME(Auth)
     @brief Initiates a password reset for the given email address and @FIRActionCodeSettings object.
 
     @param email The email address of the user.
-    @param actionCodeSettings An `FIRActionCodeSettings` object containing settings related to
+    @param actionCodeSettings An @c FIRActionCodeSettings object containing settings related to
         handling action codes.
     @param completion Optionally; a block which is invoked when the request finishes. Invoked
         asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidRecipientEmail` - Indicates an invalid recipient email was
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidRecipientEmail - Indicates an invalid recipient email was
             sent in the request.
-        + `FIRAuthErrorCodeInvalidSender` - Indicates an invalid sender email is set in
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidSender - Indicates an invalid sender email is set in
             the console for this action.
-        + `FIRAuthErrorCodeInvalidMessagePayload` - Indicates an invalid email template for
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidMessagePayload - Indicates an invalid email template for
             sending update email.
-        + `FIRAuthErrorCodeMissingIosBundleID` - Indicates that the iOS bundle ID is missing when
-            `handleCodeInApp` is set to YES.
-        + `FIRAuthErrorCodeMissingAndroidPackageName` - Indicates that the android package name
-            is missing when the `androidInstallApp` flag is set to true.
-        + `FIRAuthErrorCodeUnauthorizedDomain` - Indicates that the domain specified in the
+        </li>
+        <li>@c FIRAuthErrorCodeMissingIosBundleID - Indicates that the iOS bundle ID is missing when
+            @c handleCodeInApp is set to YES.
+        </li>
+        <li>@c FIRAuthErrorCodeMissingAndroidPackageName - Indicates that the android package name
+            is missing when the @c androidInstallApp flag is set to true.
+        </li>
+        <li>@c FIRAuthErrorCodeUnauthorizedDomain - Indicates that the domain specified in the
             continue URL is not whitelisted in the Firebase console.
-        + `FIRAuthErrorCodeInvalidContinueURI` - Indicates that the domain specified in the
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidContinueURI - Indicates that the domain specified in the
             continue URI is not valid.
-
-
+        </li>
+    </ul>
  */
  - (void)sendPasswordResetWithEmail:(NSString *)email
                  actionCodeSettings:(FIRActionCodeSettings *)actionCodeSettings
                          completion:(nullable FIRSendPasswordResetCallback)completion;
-
-/** @fn sendSignInLinkToEmail:actionCodeSettings:completion:
-    @brief Sends a sign in with email link to provided email address.
-
-    @param email The email address of the user.
-    @param actionCodeSettings An @c FIRActionCodeSettings object containing settings related to
-        handling action codes.
-    @param completion Optionally; a block which is invoked when the request finishes. Invoked
-        asynchronously on the main thread in the future.
- */
-- (void)sendSignInLinkToEmail:(NSString *)email
-           actionCodeSettings:(FIRActionCodeSettings *)actionCodeSettings
-                   completion:(nullable FIRSendSignInLinkToEmailCallback)completion;
 
 /** @fn signOut:
     @brief Signs out the current user.
@@ -735,23 +705,15 @@ NS_SWIFT_NAME(Auth)
     @return @YES when the sign out request was successful. @NO otherwise.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeKeychainError` - Indicates an error occurred when accessing the
-            keychain. The `NSLocalizedFailureReasonErrorKey` field in the `NSError.userInfo`
+    <ul>
+        <li>@c FIRAuthErrorCodeKeychainError - Indicates an error occurred when accessing the
+            keychain. The @c NSLocalizedFailureReasonErrorKey field in the @c NSError.userInfo
             dictionary will contain more information about the error encountered.
-
-
+        </li>
+    </ul>
 
  */
 - (BOOL)signOut:(NSError *_Nullable *_Nullable)error;
-
-/** @fn isSignInWithEmailLink
-    @brief Checks if link is an email sign-in link.
-
-    @param link The email sign-in link.
-    @return @YES when the link passed matches the expected format of an email sign-in link.
- */
-- (BOOL)isSignInWithEmailLink:(NSString *)link;
 
 /** @fn addAuthStateDidChangeListener:
     @brief Registers a block as an "auth state did change" listener. To be invoked when:
@@ -766,8 +728,8 @@ NS_SWIFT_NAME(Auth)
     @remarks The block is invoked immediately after adding it according to it's standard invocation
         semantics, asynchronously on the main thread. Users should pay special attention to
         making sure the block does not inadvertently retain objects which should not be retained by
-        the long-lived block. The block itself will be retained by `FIRAuth` until it is
-        unregistered or until the `FIRAuth` instance is otherwise deallocated.
+        the long-lived block. The block itself will be retained by @c FIRAuth until it is
+        unregistered or until the @c FIRAuth instance is otherwise deallocated.
 
     @return A handle useful for manually unregistering the block as a listener.
  */
@@ -795,8 +757,8 @@ NS_SWIFT_NAME(Auth)
     @remarks The block is invoked immediately after adding it according to it's standard invocation
         semantics, asynchronously on the main thread. Users should pay special attention to
         making sure the block does not inadvertently retain objects which should not be retained by
-        the long-lived block. The block itself will be retained by `FIRAuth` until it is
-        unregistered or until the `FIRAuth` instance is otherwise deallocated.
+        the long-lived block. The block itself will be retained by @c FIRAuth until it is
+        unregistered or until the @c FIRAuth instance is otherwise deallocated.
 
     @return A handle useful for manually unregistering the block as a listener.
  */
@@ -811,14 +773,14 @@ NS_SWIFT_NAME(Auth)
 - (void)removeIDTokenDidChangeListener:(FIRIDTokenDidChangeListenerHandle)listenerHandle;
 
 /** @fn useAppLanguage
-    @brief Sets `languageCode` to the app's current language.
+    @brief Sets @c languageCode to the app's current language.
  */
 - (void)useAppLanguage;
 
 #if TARGET_OS_IOS
 
 /** @fn canHandleURL:
-    @brief Whether the specific URL is handled by `FIRAuth` .
+    @brief Whether the specific URL is handled by @c FIRAuth .
     @param URL The URL received by the application delegate from any of the openURL method.
     @return Whether or the URL is handled. YES means the URL is for Firebase Auth
         so the caller should ignore the URL from further processing, and NO means the
@@ -832,12 +794,12 @@ NS_SWIFT_NAME(Auth)
 /** @fn setAPNSToken:type:
     @brief Sets the APNs token along with its type.
     @remarks If swizzling is disabled, the APNs Token must be set for phone number auth to work,
-        by either setting calling this method or by setting the `APNSToken` property.
+        by either setting calling this method or by setting the @c APNSToken property.
  */
 - (void)setAPNSToken:(NSData *)token type:(FIRAuthAPNSTokenType)type;
 
 /** @fn canHandleNotification:
-    @brief Whether the specific remote notification is handled by `FIRAuth` .
+    @brief Whether the specific remote notification is handled by @c FIRAuth .
     @param userInfo A dictionary that contains information related to the
         notification in question.
     @return Whether or the notification is handled. YES means the notification is for Firebase Auth

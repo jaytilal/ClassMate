@@ -21,6 +21,4 @@ target 'ClassMate' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'FirebaseStorage'
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
 end

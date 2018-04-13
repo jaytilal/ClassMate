@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
     @param token Optionally; an access token if the request was successful.
     @param error Optionally; the error which occurred - or nil if the request was successful.
 
-    @remarks One of: `token` or `error` will always be non-nil.
+    @remarks One of: @c token or @c error will always be non-nil.
  */
 typedef void (^FIRAuthTokenCallback)(NSString *_Nullable token, NSError *_Nullable error)
     NS_SWIFT_NAME(AuthTokenCallback);
@@ -56,11 +56,7 @@ typedef void (^FIRSendEmailVerificationCallback)(NSError *_Nullable error)
     NS_SWIFT_NAME(SendEmailVerificationCallback);
 
 /** @class FIRUser
-    @brief Represents a user. Firebase Auth does not attempt to validate users
-        when loading them from the keychain. Invalidated users (such as those
-        whose passwords have been changed on another client) are automatically
-        logged out when an auth-dependent operation is attempted or when the
-        ID token is automatically refreshed.
+    @brief Represents a user.
     @remarks This class is thread-safe.
  */
 NS_SWIFT_NAME(User)
@@ -95,8 +91,8 @@ NS_SWIFT_NAME(User)
 
 /** @fn init
     @brief This class should not be instantiated.
-    @remarks To retrieve the current user, use `FIRAuth.currentUser`. To sign a user
-        in or out, use the methods on `FIRAuth`.
+    @remarks To retrieve the current user, use @c FIRAuth.currentUser. To sign a user
+        in or out, use the methods on @c FIRAuth.
  */
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -111,22 +107,29 @@ NS_SWIFT_NAME(User)
         Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidRecipientEmail` - Indicates an invalid recipient email was
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidRecipientEmail - Indicates an invalid recipient email was
             sent in the request.
-        + `FIRAuthErrorCodeInvalidSender` - Indicates an invalid sender email is set in
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidSender - Indicates an invalid sender email is set in
             the console for this action.
-        + `FIRAuthErrorCodeInvalidMessagePayload` - Indicates an invalid email template for
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidMessagePayload - Indicates an invalid email template for
             sending update email.
-        + `FIRAuthErrorCodeEmailAlreadyInUse` - Indicates the email is already in use by another
+        </li>
+        <li>@c FIRAuthErrorCodeEmailAlreadyInUse - Indicates the email is already in use by another
             account.
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
-        + `FIRAuthErrorCodeRequiresRecentLogin` - Updating a user’s email is a security
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
+        </li>
+        <li>@c FIRAuthErrorCodeRequiresRecentLogin - Updating a user’s email is a security
             sensitive operation that requires a recent login from the user. This error indicates
             the user has not signed in recently enough. To resolve, reauthenticate the user by
             invoking reauthenticateWithCredential:completion: on FIRUser.
+        </li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all FIRUser methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all FIRUser methods.
  */
 - (void)updateEmail:(NSString *)email completion:(nullable FIRUserProfileChangeCallback)completion
     NS_SWIFT_NAME(updateEmail(to:completion:));
@@ -139,18 +142,22 @@ NS_SWIFT_NAME(User)
         Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates the administrator disabled
+    <ul>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates the administrator disabled
             sign in with the specified identity provider.
-        + `FIRAuthErrorCodeRequiresRecentLogin` - Updating a user’s password is a security
+        </li>
+        <li>@c FIRAuthErrorCodeRequiresRecentLogin - Updating a user’s password is a security
             sensitive operation that requires a recent login from the user. This error indicates
             the user has not signed in recently enough. To resolve, reauthenticate the user by
             invoking reauthenticateWithCredential:completion: on FIRUser.
-        + `FIRAuthErrorCodeWeakPassword` - Indicates an attempt to set a password that is
+        </li>
+        <li>@c FIRAuthErrorCodeWeakPassword - Indicates an attempt to set a password that is
             considered too weak. The NSLocalizedFailureReasonErrorKey field in the NSError.userInfo
             dictionary object will contain more detailed explanation that can be shown to the user.
+        </li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all FIRUser methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all FIRUser methods.
  */
 - (void)updatePassword:(NSString *)password
             completion:(nullable FIRUserProfileChangeCallback)completion
@@ -162,19 +169,21 @@ NS_SWIFT_NAME(User)
         updated.
 
     @param phoneNumberCredential The new phone number credential corresponding to the phone number
-        to be added to the Firebase account, if a phone number is already linked to the account this
+        to be added to the firebaes account, if a phone number is already linked to the account this
         new phone number will replace it.
     @param completion Optionally; the block invoked when the user profile change has finished.
         Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeRequiresRecentLogin` - Updating a user’s phone number is a security
+    <ul>
+        <li>@c FIRAuthErrorCodeRequiresRecentLogin - Updating a user’s phone number is a security
             sensitive operation that requires a recent login from the user. This error indicates
             the user has not signed in recently enough. To resolve, reauthenticate the user by
             invoking reauthenticateWithCredential:completion: on FIRUser.
+        </li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all FIRUser methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all FIRUser methods.
  */
 - (void)updatePhoneNumberCredential:(FIRPhoneAuthCredential *)phoneNumberCredential
                          completion:(nullable FIRUserProfileChangeCallback)completion;
@@ -184,7 +193,7 @@ NS_SWIFT_NAME(User)
     @brief Creates an object which may be used to change the user's profile data.
 
     @remarks Set the properties of the returned object, then call
-        `FIRUserProfileChangeRequest.commitChangesWithCallback:` to perform the updates atomically.
+        @c FIRUserProfileChangeRequest.commitChangesWithCallback: to perform the updates atomically.
 
     @return An object which may be used to change the user's profile data atomically.
  */
@@ -196,16 +205,16 @@ NS_SWIFT_NAME(User)
     @param completion Optionally; the block invoked when the reload has finished. Invoked
         asynchronously on the main thread in the future.
 
-    @remarks May fail with a `FIRAuthErrorCodeRequiresRecentLogin` error code. In this case
-        you should call `FIRUser.reauthenticateWithCredential:completion:` before re-invoking
-        `FIRUser.updateEmail:completion:`.
+    @remarks May fail with a @c FIRAuthErrorCodeRequiresRecentLogin error code. In this case
+        you should call @c FIRUser.reauthenticateWithCredential:completion: before re-invoking
+        @c FIRUser.updateEmail:completion:.
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)reloadWithCompletion:(nullable FIRUserProfileChangeCallback)completion;
 
 /** @fn reauthenticateWithCredential:completion:
-    @brief Convenience method for `reauthenticateAndRetrieveDataWithCredential:completion:` This
+    @brief Convenience method for @c reauthenticateAndRetrieveDataWithCredential:completion: This
         method doesn't return additional identity provider data.
  */
 - (void)reauthenticateWithCredential:(FIRAuthCredential *)credential
@@ -225,27 +234,33 @@ NS_SWIFT_NAME(User)
         user remains signed in.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidCredential` - Indicates the supplied credential is invalid.
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidCredential - Indicates the supplied credential is invalid.
             This could happen if it has expired or it is malformed.
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that accounts with the
+        </li>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that accounts with the
             identity provider represented by the credential are not enabled. Enable them in the
             Auth section of the Firebase console.
-        + `FIRAuthErrorCodeEmailAlreadyInUse` -  Indicates the email asserted by the credential
+        </li>
+        <li>@c FIRAuthErrorCodeEmailAlreadyInUse -  Indicates the email asserted by the credential
             (e.g. the email in a Facebook access token) is already in use by an existing account,
             that cannot be authenticated with this method. Call fetchProvidersForEmail for
             this user’s email and then prompt them to sign in with any of the sign-in providers
             returned. This error will only be thrown if the "One account per email address"
             setting is enabled in the Firebase console, under Auth settings. Please note that the
             error code raised in this specific situation may not be the same on Web and Android.
-        + `FIRAuthErrorCodeUserDisabled` - Indicates the user's account is disabled.
-        + `FIRAuthErrorCodeWrongPassword` - Indicates the user attempted reauthentication with
+        </li>
+        <li>@c FIRAuthErrorCodeUserDisabled - Indicates the user's account is disabled.
+        </li>
+        <li>@c FIRAuthErrorCodeWrongPassword - Indicates the user attempted reauthentication with
             an incorrect password, if credential is of the type EmailPasswordAuthCredential.
-        + `FIRAuthErrorCodeUserMismatch` -  Indicates that an attempt was made to
+        </li>
+        <li>@c FIRAuthErrorCodeUserMismatch -  Indicates that an attempt was made to
             reauthenticate with a user which is not the current user.
-        + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
-
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.</li>
+    </ul>
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)reauthenticateAndRetrieveDataWithCredential:(FIRAuthCredential *) credential
                                          completion:(nullable FIRAuthDataResultCallback) completion;
@@ -256,18 +271,18 @@ NS_SWIFT_NAME(User)
     @param completion Optionally; the block invoked when the token is available. Invoked
         asynchronously on the main thread in the future.
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)getIDTokenWithCompletion:(nullable FIRAuthTokenCallback)completion
     NS_SWIFT_NAME(getIDToken(completion:));
 
 /** @fn getTokenWithCompletion:
-    @brief Please use `getIDTokenWithCompletion:` instead.
+    @brief Please use @c getIDTokenWithCompletion: instead.
 
     @param completion Optionally; the block invoked when the token is available. Invoked
         asynchronously on the main thread in the future.
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)getTokenWithCompletion:(nullable FIRAuthTokenCallback)completion
     NS_SWIFT_NAME(getToken(completion:)) __attribute__((deprecated));
@@ -281,9 +296,9 @@ NS_SWIFT_NAME(User)
         asynchronously on the main thread in the future.
 
     @remarks The authentication token will be refreshed (by making a network request) if it has
-        expired, or if `forceRefresh` is YES.
+        expired, or if @c forceRefresh is YES.
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)getIDTokenForcingRefresh:(BOOL)forceRefresh
                       completion:(nullable FIRAuthTokenCallback)completion;
@@ -297,16 +312,16 @@ NS_SWIFT_NAME(User)
         asynchronously on the main thread in the future.
 
     @remarks The authentication token will be refreshed (by making a network request) if it has
-        expired, or if `forceRefresh` is YES.
+        expired, or if @c forceRefresh is YES.
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all API methods.
  */
 - (void)getTokenForcingRefresh:(BOOL)forceRefresh
                     completion:(nullable FIRAuthTokenCallback)completion
                         __attribute__((deprecated));
 
 /** @fn linkWithCredential:completion:
-    @brief Convenience method for `linkAndRetrieveDataWithCredential:completion:` This method
+    @brief Convenience method for @c linkAndRetrieveDataWithCredential:completion: This method
         doesn't return additional identity provider data.
  */
 - (void)linkWithCredential:(FIRAuthCredential *)credential
@@ -321,20 +336,24 @@ NS_SWIFT_NAME(User)
         Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeProviderAlreadyLinked` - Indicates an attempt to link a provider of a
+    <ul>
+        <li>@c FIRAuthErrorCodeProviderAlreadyLinked - Indicates an attempt to link a provider of a
             type already linked to this account.
-        + `FIRAuthErrorCodeCredentialAlreadyInUse` - Indicates an attempt to link with a
+        </li>
+        <li>@c FIRAuthErrorCodeCredentialAlreadyInUse - Indicates an attempt to link with a
             credential
             that has already been linked with a different Firebase account.
-        + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that accounts with the identity
+        </li>
+        <li>@c FIRAuthErrorCodeOperationNotAllowed - Indicates that accounts with the identity
             provider represented by the credential are not enabled. Enable them in the Auth section
             of the Firebase console.
+        </li>
+    </ul>
 
     @remarks This method may also return error codes associated with updateEmail:completion: and
             updatePassword:completion: on FIRUser.
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all FIRUser methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all FIRUser methods.
  */
 - (void)linkAndRetrieveDataWithCredential:(FIRAuthCredential *) credential
                                completion:(nullable FIRAuthDataResultCallback) completion;
@@ -347,15 +366,18 @@ NS_SWIFT_NAME(User)
         Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeNoSuchProvider` - Indicates an attempt to unlink a provider
+    <ul>
+        <li>@c FIRAuthErrorCodeNoSuchProvider - Indicates an attempt to unlink a provider
             that is not linked to the account.
-        + `FIRAuthErrorCodeRequiresRecentLogin` - Updating email is a security sensitive
+        </li>
+        <li>@c FIRAuthErrorCodeRequiresRecentLogin - Updating email is a security sensitive
             operation that requires a recent login from the user. This error indicates the user
             has not signed in recently enough. To resolve, reauthenticate the user by invoking
             reauthenticateWithCredential:completion: on FIRUser.
+        </li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all FIRUser methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all FIRUser methods.
  */
 - (void)unlinkFromProvider:(NSString *)provider
                 completion:(nullable FIRAuthResultCallback)completion;
@@ -367,42 +389,54 @@ NS_SWIFT_NAME(User)
         is complete, or fails. Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidRecipientEmail` - Indicates an invalid recipient email was
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidRecipientEmail - Indicates an invalid recipient email was
             sent in the request.
-        + `FIRAuthErrorCodeInvalidSender` - Indicates an invalid sender email is set in
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidSender - Indicates an invalid sender email is set in
             the console for this action.
-        + `FIRAuthErrorCodeInvalidMessagePayload` - Indicates an invalid email template for
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidMessagePayload - Indicates an invalid email template for
             sending update email.
-        + `FIRAuthErrorCodeUserNotFound` - Indicates the user account was not found.
+        </li>
+        <li>@c FIRAuthErrorCodeUserNotFound - Indicates the user account was not found.</li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all FIRUser methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all FIRUser methods.
  */
 - (void)sendEmailVerificationWithCompletion:(nullable FIRSendEmailVerificationCallback)completion;
 
 /** @fn sendEmailVerificationWithActionCodeSettings:completion:
     @brief Initiates email verification for the user.
 
-    @param actionCodeSettings An `FIRActionCodeSettings` object containing settings related to
+    @param actionCodeSettings An @c FIRActionCodeSettings object containing settings related to
         handling action codes.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeInvalidRecipientEmail` - Indicates an invalid recipient email was
+    <ul>
+        <li>@c FIRAuthErrorCodeInvalidRecipientEmail - Indicates an invalid recipient email was
             sent in the request.
-        + `FIRAuthErrorCodeInvalidSender` - Indicates an invalid sender email is set in
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidSender - Indicates an invalid sender email is set in
             the console for this action.
-        + `FIRAuthErrorCodeInvalidMessagePayload` - Indicates an invalid email template for
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidMessagePayload - Indicates an invalid email template for
             sending update email.
-        + `FIRAuthErrorCodeUserNotFound` - Indicates the user account was not found.
-        + `FIRAuthErrorCodeMissingIosBundleID` - Indicates that the iOS bundle ID is missing when
+        </li>
+        <li>@c FIRAuthErrorCodeUserNotFound - Indicates the user account was not found.</li>
+        <li>@c FIRAuthErrorCodeMissingIosBundleID - Indicates that the iOS bundle ID is missing when
             a iOS App Store ID is provided.
-        + `FIRAuthErrorCodeMissingAndroidPackageName` - Indicates that the android package name
-            is missing when the `androidInstallApp` flag is set to true.
-        + `FIRAuthErrorCodeUnauthorizedDomain` - Indicates that the domain specified in the
+        </li>
+        <li>@c FIRAuthErrorCodeMissingAndroidPackageName - Indicates that the android package name
+            is missing when the @c androidInstallApp flag is set to true.
+        </li>
+        <li>@c FIRAuthErrorCodeUnauthorizedDomain - Indicates that the domain specified in the
             continue URL is not whitelisted in the Firebase console.
-        + `FIRAuthErrorCodeInvalidContinueURI` - Indicates that the domain specified in the
+        </li>
+        <li>@c FIRAuthErrorCodeInvalidContinueURI - Indicates that the domain specified in the
             continue URI is not valid.
+        </li>
+    </ul>
  */
 - (void)sendEmailVerificationWithActionCodeSettings:(FIRActionCodeSettings *)actionCodeSettings
                                          completion:(nullable FIRSendEmailVerificationCallback)
@@ -415,13 +449,15 @@ NS_SWIFT_NAME(User)
         complete, or fails. Invoked asynchronously on the main thread in the future.
 
     @remarks Possible error codes:
-
-        + `FIRAuthErrorCodeRequiresRecentLogin` - Updating email is a security sensitive
+    <ul>
+        <li>@c FIRAuthErrorCodeRequiresRecentLogin - Updating email is a security sensitive
             operation that requires a recent login from the user. This error indicates the user
             has not signed in recently enough. To resolve, reauthenticate the user by invoking
             reauthenticateWithCredential:completion: on FIRUser.
+        </li>
+    </ul>
 
-    @remarks See `FIRAuthErrors` for a list of error codes that are common to all FIRUser methods.
+    @remarks See @c FIRAuthErrors for a list of error codes that are common to all FIRUser methods.
 
  */
 - (void)deleteWithCompletion:(nullable FIRUserProfileChangeCallback)completion;
@@ -437,21 +473,21 @@ NS_SWIFT_NAME(UserProfileChangeRequest)
 @interface FIRUserProfileChangeRequest : NSObject
 
 /** @fn init
-    @brief Please use `FIRUser.profileChangeRequest`
+    @brief Please use @c FIRUser.profileChangeRequest
  */
 - (instancetype)init NS_UNAVAILABLE;
 
 /** @property displayName
     @brief The user's display name.
     @remarks It is an error to set this property after calling
-        `FIRUserProfileChangeRequest.commitChangesWithCallback:`
+        @c FIRUserProfileChangeRequest.commitChangesWithCallback:
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** @property photoURL
     @brief The user's photo URL.
     @remarks It is an error to set this property after calling
-        `FIRUserProfileChangeRequest.commitChangesWithCallback:`
+        @c FIRUserProfileChangeRequest.commitChangesWithCallback:
  */
 @property(nonatomic, copy, nullable) NSURL *photoURL;
 
